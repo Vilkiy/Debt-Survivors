@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dasbbm1bftmr2"]
+
+[ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_aee6e"]
+
+[sub_resource type="GDScript" id="GDScript_3e2tf"]
+script/source = "extends CharacterBody2D
+
+@export var speed := 200.0
+
+func _physics_process(delta):
+	var dir := Vector2.ZERO
+
+	if Input.is_action_pressed(\"move_up\"):
+		dir.y -= 1
+	if Input.is_action_pressed(\"move_down\"):
+		dir.y += 1
+	if Input.is_action_pressed(\"move_left\"):
+		dir.x -= 1
+	if Input.is_action_pressed(\"move_right\"):
+		dir.x += 1
+
+	if dir != Vector2.ZERO:
+		dir = dir.normalized()
+
+	velocity = dir * speed
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
+radius = 13.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=303781923]
+script = SubResource("GDScript_3e2tf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1604275509]
+scale = Vector2(0.22851561, 0.22851561)
+texture = ExtResource("2_aee6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442219467]
+scale = Vector2(1, 0.9200015)
+shape = SubResource("CapsuleShape2D_f7qjp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=541819718]
+scale = Vector2(0.23792419, 4.71131)
+zoom = Vector2(2, 2)
