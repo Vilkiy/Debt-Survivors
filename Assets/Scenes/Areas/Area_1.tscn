@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://0vg044ecjfxx" path="res://Assets/Sprites/TilesetFloor.png" id="1_5mka6"]
 [ext_resource type="PackedScene" uid="uid://dasbbm1bftmr2" path="res://Assets/Scenes/Player.tscn" id="2_5mka6"]
-[ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="3_oqn7b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf5q8"]
 texture = ExtResource("1_5mka6")
@@ -476,4 +475,3 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65532, 327680, 2, 65533, 327680, 2, 131069, 327680, 2, -131076, 458752, 3, -131075, 458752, 3, -196611, 458752, 3, -196610, 458752, 3, -196609, 458752, 3, 65537, 786432, 2, 131072, 786432, 2, 196607, 786432, 2, 196606, 786432, 2, -196606, 786432, 2)
 
 [node name="CharacterBody2D" parent="." unique_id=303781923 instance=ExtResource("2_5mka6")]
-script = ExtResource("3_oqn7b")

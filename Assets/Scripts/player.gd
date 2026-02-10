@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 200.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var dir := Vector2.ZERO
 
 	if Input.is_action_pressed("move_up"):
