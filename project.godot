@@ -15,6 +15,15 @@ run/main_scene="uid://qphiu32seeu3"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="Debt Survivors"
+
+[global_group]
+
+player=""
+enemy=""
+
 [input]
 
 move_up={

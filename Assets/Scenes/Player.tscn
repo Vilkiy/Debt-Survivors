@@ -29,7 +29,7 @@ func _physics_process(delta):
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
 radius = 13.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=303781923]
+[node name="Player" type="CharacterBody2D" unique_id=303781923 groups=["player"]]
 script = SubResource("GDScript_3e2tf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1604275509]

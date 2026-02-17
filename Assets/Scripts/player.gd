@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 200.0
+var hp: int = 100
 
 func _physics_process(delta):
 	var dir := Vector2.ZERO
@@ -19,3 +20,7 @@ func _physics_process(delta):
 
 	velocity = dir * speed
 	move_and_slide()
+	
+func take_damage(amount: int):
+	hp -= amount
+	print("Player HP:", hp)
