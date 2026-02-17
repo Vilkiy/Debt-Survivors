@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b38kcm4gtk6tq"]
+
+[ext_resource type="Script" uid="uid://jp7472ic1s5y" path="res://Assets/Scripts/enemy.gd" id="1_oyf8h"]
+[ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_3pmh0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pmh0"]
+radius = 18.0
+height = 44.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_td1d5"]
+radius = 22.0
+height = 44.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=345262250 groups=["enemy"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_oyf8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
+modulate = Color(0.9647059, 0.007843138, 0.22352941, 1)
+scale = Vector2(0.36000073, 0.36000073)
+texture = ExtResource("2_3pmh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
+shape = SubResource("CapsuleShape2D_3pmh0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1451145990]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2030632936]
+shape = SubResource("CapsuleShape2D_td1d5")
