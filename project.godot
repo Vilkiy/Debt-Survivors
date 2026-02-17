@@ -19,11 +19,6 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Debt Survivors"
 
-[global_group]
-
-player=""
-enemy=""
-
 [input]
 
 move_up={

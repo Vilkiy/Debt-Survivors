@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://0vg044ecjfxx" path="res://Assets/Sprites/TilesetFloor.png" id="1_5mka6"]
 [ext_resource type="PackedScene" uid="uid://dasbbm1bftmr2" path="res://Assets/Scenes/Player.tscn" id="2_5mka6"]
-[ext_resource type="PackedScene" uid="uid://clcjepdcabo7c" path="res://Assets/Scenes/enemy_spawner.tscn" id="4_kf5q8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf5q8"]
 texture = ExtResource("1_5mka6")
