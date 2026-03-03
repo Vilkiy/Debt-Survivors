@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var speed: float = 80.0
@@ -14,10 +15,16 @@ var player: Node2D
 
 func _ready():
 	hp = max_hp
-	player = get_tree().get_first_node_in_group("player")
-	print("Groups:", get_groups())
+	
+	await get_tree().process_frame
+	
+	player = GlobalVar.player
+	
+	
+	#print("Groups:", get_groups())
+	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player == null:
 		return
 
