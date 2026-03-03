@@ -9,6 +9,7 @@ extends CharacterBody2D
 #4 da feel
 @export var separation_distance: float = 20.0
 @export var separation_force: float = 200.0
+const XP : PackedScene = preload("uid://lf31uwke02f8")
 
 @onready var health_handler: HealthHandler = $HealthHandler
 var hp: int
@@ -43,6 +44,9 @@ func _physics_process(_delta):
 
 func _on_death():
 	dead = true
+	var xp_object : XP = XP.instantiate()
+	xp_object.global_position = global_position
+	get_parent().add_child(xp_object)
 	queue_free()
 	
 
