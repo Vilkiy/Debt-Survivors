@@ -4,6 +4,10 @@ extends CharacterBody2D
 @export var speed := 200.0
 var hp: int = 100
 
+var current_xp: int = 0
+var current_level : int = 1
+var xp_to_level_up : int = 100
+
 func _ready() -> void:
 	GlobalVar.player = self
 	
@@ -29,3 +33,14 @@ func _physics_process(_delta):
 func take_damage(amount: int):
 	hp -= amount
 	print("Player HP:", hp)
+
+func collect_xp(amount: int) -> void:
+	current_xp += amount;
+	if (current_xp >= xp_to_level_up): _level_up()
+	
+func _level_up() -> void:
+	current_level+=1
+	xp_to_level_up=ceil(1.5*xp_to_level_up)
+	current_xp = 0
+	
+	
