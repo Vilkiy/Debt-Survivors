@@ -14,6 +14,3 @@ script = ExtResource("1_ubj65")
 
 [node name="Area2D" parent="." unique_id=1548635223 instance=ExtResource("4_bqdwa")]
 position = Vector2(101, 36)
-
-[node name="Area2D2" parent="." unique_id=1130501876 instance=ExtResource("4_bqdwa")]
-position = Vector2(-49, 72)

@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="1_b2ifw"]
 [ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_aee6e"]
+
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_aee6e"]
 [ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="4_e5q2x"]
 [ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
+
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
 radius = 23.913004

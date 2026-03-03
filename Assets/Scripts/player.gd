@@ -39,11 +39,13 @@ func _on_health_handler_took_damage() -> void:
 
 func collect_xp(amount: int) -> void:
 	current_xp += amount;
+	print("player collected xp: " + str(current_xp) + "/" + str(xp_to_level_up))
 	if (current_xp >= xp_to_level_up): _level_up()
 	
 func _level_up() -> void:
 	current_level+=1
 	xp_to_level_up=ceil(1.5*xp_to_level_up)
 	current_xp = 0
+	print("player leveled up: " + str(current_level-1) + "->" + str(current_level))
 	
 	
