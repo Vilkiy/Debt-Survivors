@@ -1,17 +1,18 @@
 class_name Enemy
 extends CharacterBody2D
 
+
 @export var speed: float = 80.0
 @export var max_hp: int = 10
 @export var damage: int = 5
-
-var hp: int
-var player: Node2D
 
 #4 da feel
 @export var separation_distance: float = 20.0
 @export var separation_force: float = 200.0
 
+@onready var health_handler: HealthHandler = $HealthHandler
+var hp: int
+var player: Node2D
 
 func _ready():
 	hp = max_hp
@@ -20,6 +21,7 @@ func _ready():
 	
 	player = GlobalVar.player
 	
+	health_handler.died.connect(_on_death)
 	
 	#print("Groups:", get_groups())
 	
@@ -36,18 +38,15 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 
-func take_damage(amount: int):
-	hp -= amount
-	if hp <= 0:
-		die()
 
-func die():
+
+func _on_death():
 	queue_free()
 	
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("player"):
-		area.take_damage(damage)
-		
+
+
+
+
 func get_separation_vector():
 	var push_vector = Vector2.ZERO
 

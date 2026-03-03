@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4f0g441r80dg"]
+
+[ext_resource type="Script" uid="uid://cvxdl3ykf0dih" path="res://logic/gameplay_elements/health_handler/health_handler.gd" id="1_8fwyt"]
+
+[node name="HealthHandler" type="Node" unique_id=1119927]
+script = ExtResource("1_8fwyt")

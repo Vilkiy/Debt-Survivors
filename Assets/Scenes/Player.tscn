@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="1_b2ifw"]
 [ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_aee6e"]
+[ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_aee6e"]
+[ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="4_e5q2x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
 radius = 13.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=303781923]
+[sub_resource type="CircleShape2D" id="CircleShape2D_aee6e"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D" unique_id=303781923]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_b2ifw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1604275509]
@@ -20,3 +27,19 @@ shape = SubResource("CapsuleShape2D_f7qjp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=541819718]
 scale = Vector2(0.23792419, 4.71131)
 zoom = Vector2(2, 2)
+
+[node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_aee6e")]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=632068975]
+script = ExtResource("4_e5q2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1298899526]
+shape = SubResource("CircleShape2D_aee6e")
+debug_color = Color(0.9098039, 0.23921569, 0.28627452, 0.41960785)
+
+[node name="InvincibilityTimer" type="Timer" parent="HurtBox" unique_id=818573081]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="took_damage" from="HealthHandler" to="." method="_on_health_handler_took_damage"]
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

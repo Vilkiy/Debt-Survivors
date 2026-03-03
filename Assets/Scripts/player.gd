@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed := 200.0
-var hp: int = 100
+@onready var health_handler: HealthHandler = $HealthHandler
 
 func _ready() -> void:
 	GlobalVar.player = self
@@ -26,6 +26,8 @@ func _physics_process(_delta):
 	velocity = dir * speed
 	move_and_slide()
 	
-func take_damage(amount: int):
-	hp -= amount
-	print("Player HP:", hp)
+
+
+func _on_health_handler_took_damage() -> void:
+	print("player took damage: " + str(health_handler.hp))
+	
