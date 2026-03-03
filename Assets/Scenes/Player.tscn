@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="1_b2ifw"]
 [ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_aee6e"]
-
+[ext_resource type="Script" uid="uid://bpc3j056x6m" path="res://Assets/Scripts/camera_controller.gd" id="3_2thea"]
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_aee6e"]
 [ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="4_e5q2x"]
 [ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
-
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
 radius = 23.913004
@@ -30,6 +28,7 @@ scale = Vector2(1, 0.9200015)
 shape = SubResource("CapsuleShape2D_f7qjp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=541819718]
+script = ExtResource("3_2thea")
 
 [node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_aee6e")]
 offset_left = -15.0
