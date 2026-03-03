@@ -11,31 +11,81 @@ var xp_to_level_up : int = 100
 @export var knockback_strength := 350.0  # pixels per second
 var knockback_velocity := Vector2.ZERO
 var knockback_friction := 10.0  # how fast knockback slows down
+
+@export var dash_distance := 200.0     # total distance of dash
+@export var dash_duration := 0.15      # how long the dash lasts (seconds)
+@export var dash_cooldown := 0.3
+var dash_timer := 0.0
+var is_dashing := false
+var dash_direction := Vector2.ZERO
+var dash_time_left := 0.0              # timer for dash duration
+
 func _ready() -> void:
 	GlobalVar.player = self
 	
 
 func _physics_process(_delta):
+	# ----------------------------
+	# Update dash cooldown timer
+	if dash_timer > 0.0:
+		dash_timer -= _delta
+
 	var dir := Vector2.ZERO
 
-	if Input.is_action_pressed("move_up"):
-		dir.y -= 1
-	if Input.is_action_pressed("move_down"):
-		dir.y += 1
-	if Input.is_action_pressed("move_left"):
-		dir.x -= 1
-	if Input.is_action_pressed("move_right"):
-		dir.x += 1
+	# ----------------------------
+	# Dash input
+	if Input.is_action_just_pressed("dash") and dash_timer <= 0.0 and not is_dashing:
+		is_dashing = true
+		dash_time_left = dash_duration
+		dash_direction = Vector2.ZERO
 
-	if dir != Vector2.ZERO:
-		dir = dir.normalized()
-		
-	# Add knockback velocity
-	velocity = dir * speed + knockback_velocity
+		if Input.is_action_pressed("move_up"):
+			dash_direction.y -= 1
+		if Input.is_action_pressed("move_down"):
+			dash_direction.y += 1
+		if Input.is_action_pressed("move_left"):
+			dash_direction.x -= 1
+		if Input.is_action_pressed("move_right"):
+			dash_direction.x += 1
 
+		if dash_direction == Vector2.ZERO:
+			dash_direction = velocity.normalized()
+		else:
+			dash_direction = dash_direction.normalized()
+
+		dash_timer = dash_cooldown
+
+	# ----------------------------
+	# Normal movement or dash
+	if is_dashing:
+		# Smooth dash velocity
+		var dash_speed = dash_distance / dash_duration
+		velocity = dash_direction * dash_speed + knockback_velocity
+
+		dash_time_left -= _delta
+		if dash_time_left <= 0.0:
+			is_dashing = false
+	else:
+		if Input.is_action_pressed("move_up"):
+			dir.y -= 1
+		if Input.is_action_pressed("move_down"):
+			dir.y += 1
+		if Input.is_action_pressed("move_left"):
+			dir.x -= 1
+		if Input.is_action_pressed("move_right"):
+			dir.x += 1
+
+		if dir != Vector2.ZERO:
+			dir = dir.normalized()
+		velocity = dir * speed + knockback_velocity
+
+	# ----------------------------
 	move_and_slide()
-	# Slow down knockback over time
+
+	# Decay knockback over time
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction)
+
+
 
 
 func _on_health_handler_took_damage(attacker_global_position: Vector2) -> void:
