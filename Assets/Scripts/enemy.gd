@@ -12,6 +12,13 @@ var player: Node2D
 @export var separation_distance: float = 20.0
 @export var separation_force: float = 200.0
 
+<<<<<<< Updated upstream
+=======
+@onready var health_handler: HealthHandler = $HealthHandler
+var hp: int
+var player: Node2D
+const XP :  = preload("uid://lf31uwke02f8")
+>>>>>>> Stashed changes
 
 func _ready():
 	hp = max_hp
@@ -41,7 +48,15 @@ func take_damage(amount: int):
 	if hp <= 0:
 		die()
 
+<<<<<<< Updated upstream
 func die():
+=======
+
+func _on_death():
+	var xp_object = XP.instantiate()
+	xp_object.
+	get_parent().add_child(XP.instantiate())
+>>>>>>> Stashed changes
 	queue_free()
 	
 func _on_area_2d_area_entered(area):
