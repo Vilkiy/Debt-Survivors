@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xq4aqavfj1ro"]
+
+[ext_resource type="Script" uid="uid://c2u023bsb4tf2" path="res://logic/gameplay_elements/weapons/cooldown_weapons/cooldown_weapon.gd" id="1_2qjai"]
+
+[node name="CooldownWeapon" type="Node2D" unique_id=1604467506]
+script = ExtResource("1_2qjai")

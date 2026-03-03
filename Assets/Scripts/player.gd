@@ -33,7 +33,8 @@ func _physics_process(_delta):
 
 
 func _on_health_handler_took_damage() -> void:
-	print("player took damage: " + str(health_handler.hp))
+	pass
+	#print("player took damage: " + str(health_handler.hp))
 
 
 func collect_xp(amount: int) -> void:

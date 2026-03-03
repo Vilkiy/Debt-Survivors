@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dqeqyoeysrrl6"]
+
+[ext_resource type="Script" uid="uid://cqmv6ltt5tdfh" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.gd" id="1_gu24l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvhlb"]
+radius = 381.04724
+
+[node name="ProjectileShooter" type="Node2D" unique_id=1510094829]
+script = ExtResource("1_gu24l")
+
+[node name="Range" type="Area2D" parent="." unique_id=1805180236]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=866368857]
+shape = SubResource("CircleShape2D_gvhlb")

@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var health_handler: HealthHandler = $HealthHandler
 var hp: int
 var player: Node2D
+var dead : bool = false
 
 func _ready():
 	hp = max_hp
@@ -41,6 +42,7 @@ func _physics_process(_delta):
 
 
 func _on_death():
+	dead = true
 	queue_free()
 	
 

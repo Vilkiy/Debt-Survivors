@@ -18,6 +18,13 @@ config/icon="res://icon.svg"
 
 GlobalVar="*uid://1pxcn8ly5l2n"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
 [dotnet]
 
 project/assembly_name="Debt Survivors"
@@ -44,6 +51,11 @@ move_right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="enemy"
+2d_physics/layer_2="player"
 
 [physics]
 

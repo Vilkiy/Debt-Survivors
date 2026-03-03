@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_td1d5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pmh0"]
-radius = 18.0
-height = 44.0
+radius = 49.0
+height = 98.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=345262250 groups=["enemy"]]
 motion_mode = 1
@@ -14,7 +14,7 @@ script = ExtResource("1_oyf8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
 modulate = Color(0.9647059, 0.007843138, 0.22352941, 1)
-scale = Vector2(0.36000073, 0.36000073)
+scale = Vector2(0.72, 0.72)
 texture = ExtResource("2_3pmh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
@@ -22,6 +22,6 @@ shape = SubResource("CapsuleShape2D_3pmh0")
 
 [node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_td1d5")]
 offset_left = -15.0
-offset_top = 32.0
+offset_top = 54.0
 offset_right = -15.0
-offset_bottom = 32.0
+offset_bottom = 54.0
