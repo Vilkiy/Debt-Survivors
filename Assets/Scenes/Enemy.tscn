@@ -21,3 +21,7 @@ texture = ExtResource("2_3pmh0")
 shape = SubResource("CapsuleShape2D_3pmh0")
 
 [node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_td1d5")]
+offset_left = -15.0
+offset_top = 32.0
+offset_right = -15.0
+offset_bottom = 32.0

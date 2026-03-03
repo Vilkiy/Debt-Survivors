@@ -2,5 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cvxdl3ykf0dih" path="res://logic/gameplay_elements/health_handler/health_handler.gd" id="1_8fwyt"]
 
-[node name="HealthHandler" type="Node" unique_id=1119927]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fwyt"]
+bg_color = Color(0.94509804, 0.15686275, 0.26666668, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kl5q"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
+[node name="HealthHandler" type="Control" unique_id=1322258085]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8fwyt")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1926633167]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 3.0
+theme_override_styles/background = SubResource("StyleBoxFlat_8fwyt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0kl5q")
+show_percentage = false

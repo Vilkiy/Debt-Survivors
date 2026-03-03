@@ -29,6 +29,10 @@ scale = Vector2(0.23792419, 4.71131)
 zoom = Vector2(2, 2)
 
 [node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_aee6e")]
+offset_left = -15.0
+offset_top = 18.0
+offset_right = -15.0
+offset_bottom = 18.0
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=632068975]
 script = ExtResource("4_e5q2x")
