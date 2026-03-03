@@ -6,7 +6,9 @@ extends CharacterBody2D
 @export var max_hp: int = 10
 @export var damage: int = 5
 
-#4 da feel
+var hit_cooldown := 0.5  # seconds between hits
+var hit_timer := 0.0
+
 @export var separation_distance: float = 20.0
 @export var separation_force: float = 200.0
 const XP : PackedScene = preload("uid://lf31uwke02f8")
@@ -32,14 +34,24 @@ func _physics_process(_delta):
 	if player == null:
 		return
 
+	# Update hit cooldown timer
+	if hit_timer > 0.0:
+		hit_timer -= _delta
+
 	var direction = (player.global_position - global_position).normalized()
 	var separation = get_separation_vector()
 	
-	#+ seperation isnt needed but it smoothens out the feeling of their hitboxes colliding
 	velocity = direction * speed + separation
-	
 	move_and_slide()
 
+	# Automatic hit check (optional if not using signals)
+	if global_position.distance_to(player.global_position) < 20.0 and hit_timer <= 0.0:
+		player._on_health_handler_took_damage(global_position)
+		hit_timer = hit_cooldown
+	
+func _on_body_entered(body):
+	if body is Player:
+		body._on_health_handler_took_damage(global_position)
 
 
 func _on_death():

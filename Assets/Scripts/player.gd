@@ -8,6 +8,9 @@ var current_xp: int = 0
 var current_level : int = 1
 var xp_to_level_up : int = 100
 
+@export var knockback_strength := 350.0  # pixels per second
+var knockback_velocity := Vector2.ZERO
+var knockback_friction := 10.0  # how fast knockback slows down
 func _ready() -> void:
 	GlobalVar.player = self
 	
@@ -26,14 +29,19 @@ func _physics_process(_delta):
 
 	if dir != Vector2.ZERO:
 		dir = dir.normalized()
+		
+	# Add knockback velocity
+	velocity = dir * speed + knockback_velocity
 
-	velocity = dir * speed
 	move_and_slide()
-	
+	# Slow down knockback over time
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction)
 
 
-func _on_health_handler_took_damage() -> void:
-	pass
+func _on_health_handler_took_damage(attacker_global_position: Vector2) -> void:
+	# Calculate direction away from enemy
+	var direction = (global_position - attacker_global_position).normalized()
+	knockback_velocity = direction * knockback_strength
 	#print("player took damage: " + str(health_handler.hp))
 
 
