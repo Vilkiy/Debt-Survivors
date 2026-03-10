@@ -20,6 +20,8 @@ var is_dashing := false
 var dash_direction := Vector2.ZERO
 var dash_time_left := 0.0              # timer for dash duration
 
+const UPGRADE_SCREEN = preload("res://logic/gameplay_elements/upgrades/upgrade_screen.tscn")
+
 func _ready() -> void:
 	GlobalVar.player = self
 	
@@ -99,11 +101,18 @@ func collect_xp(amount: int) -> void:
 	current_xp += amount;
 	print("player collected xp: " + str(current_xp) + "/" + str(xp_to_level_up))
 	if (current_xp >= xp_to_level_up): _level_up()
-	
+
 func _level_up() -> void:
-	current_level+=1
-	xp_to_level_up=ceil(1.5*xp_to_level_up)
+	current_level += 1
+	xp_to_level_up = ceil(1.5 * xp_to_level_up)
 	current_xp = 0
-	print("player leveled up: " + str(current_level-1) + "->" + str(current_level))
 	
+	var screen = UPGRADE_SCREEN.instantiate()
+	get_tree().root.add_child(screen)
+	screen.show_upgrades(self)
+	screen.upgrade_chosen.connect(func():
+		get_tree().paused = false
+		screen.queue_free()
+	)
 	
+	get_tree().paused = true
