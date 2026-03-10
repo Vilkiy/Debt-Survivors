@@ -8,6 +8,7 @@ var cooldown : float = 0.7
 var cooldown_timer : Timer
 var projectile_speed : float = 25.0
 
+
 func _ready() -> void:
 	cooldown_timer = Timer.new()
 	cooldown_timer.autostart = false

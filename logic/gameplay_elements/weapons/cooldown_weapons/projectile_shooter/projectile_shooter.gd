@@ -7,11 +7,14 @@ const PROJECTILE :PackedScene = preload("uid://dxy5srsogv3fn")
 var spread_angle: float = 15.0  # degrees
 var projectile_count: int = 1
 
+var ad_scaling: float = 1.0  # 100% AD scaling
+
+func update_damage(attack_damage: float) -> void:
+	damage = attack_damage * ad_scaling
+
 func _ready() -> void:
-	damage = 10.0
 	cooldown = 0.7
 	projectile_speed = 2000
-	
 	super._ready()
 
 func on_cooldown_reached()->void:
