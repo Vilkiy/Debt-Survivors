@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cbehht6iafh3e"]
+
+[ext_resource type="Script" uid="uid://dc1fe23bgyxsh" path="res://logic/UI/HUD/hud.gd" id="1_go0ej"]
+
+[node name="HUD" type="CanvasLayer" unique_id=962876454]
+script = ExtResource("1_go0ej")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1381033881]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer" unique_id=1513049964]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="." unique_id=1217996962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="XPBar" type="ProgressBar" parent="Control" unique_id=1218427680]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0

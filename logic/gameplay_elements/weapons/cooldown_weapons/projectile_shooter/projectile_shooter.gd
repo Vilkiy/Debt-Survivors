@@ -8,7 +8,7 @@ var spread_angle: float = 15.0  # degrees
 var projectile_count: int = 1
 
 func _ready() -> void:
-	damage = 25.0
+	damage = 10.0
 	cooldown = 0.7
 	projectile_speed = 2000
 	

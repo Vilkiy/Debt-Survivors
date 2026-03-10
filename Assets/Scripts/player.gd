@@ -19,12 +19,14 @@ var dash_timer := 0.0
 var is_dashing := false
 var dash_direction := Vector2.ZERO
 var dash_time_left := 0.0              # timer for dash duration
+var hud: HUD
 
 const UPGRADE_SCREEN = preload("res://logic/gameplay_elements/upgrades/upgrade_screen.tscn")
 
 func _ready() -> void:
 	GlobalVar.player = self
-	
+	await get_tree().process_frame
+	hud = get_tree().root.find_child("HUD", true, false)
 
 func _physics_process(_delta):
 	# ----------------------------
@@ -98,14 +100,20 @@ func _on_health_handler_took_damage(attacker_global_position: Vector2) -> void:
 
 
 func collect_xp(amount: int) -> void:
-	current_xp += amount;
-	print("player collected xp: " + str(current_xp) + "/" + str(xp_to_level_up))
-	if (current_xp >= xp_to_level_up): _level_up()
+	current_xp += amount
+	if hud:
+		hud.update(current_xp, xp_to_level_up, current_level)
+	if current_xp >= xp_to_level_up:
+		_level_up()
+
+
 
 func _level_up() -> void:
 	current_level += 1
 	xp_to_level_up = ceil(1.5 * xp_to_level_up)
 	current_xp = 0
+	if hud:
+		hud.update(current_xp, xp_to_level_up, current_level)
 	
 	var screen = UPGRADE_SCREEN.instantiate()
 	get_tree().root.add_child(screen)
@@ -114,5 +122,4 @@ func _level_up() -> void:
 		get_tree().paused = false
 		screen.queue_free()
 	)
-	
 	get_tree().paused = true
