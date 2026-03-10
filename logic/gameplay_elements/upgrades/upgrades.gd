@@ -33,8 +33,8 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 			"apply": func(): player.knockback_strength += 50
 		},
 		{
-		 "name": "Double Shot",
-		"description": "Fire an extra projectile each shot",
-		"apply": func(): player.get_node("Weapons/ProjectileShooter").projectile_count += 1
+			"name": "Double Shot",
+			"description": "Fire an extra projectile each shot",
+			"apply": func(): player.get_node("Weapons/ProjectileShooter").projectile_count += 1
 		},
 	]
