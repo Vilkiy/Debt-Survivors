@@ -8,6 +8,13 @@ var orbit_radius: float = 80.0
 var orbit_speed: float = 2.0  # radians per second
 var angle: float = 0.0
 var orbs: Array = []
+var ad_scaling: float = 2.0  # 200% AD scaling
+
+func update_damage(attack_damage: float) -> void:
+	var new_damage = attack_damage * ad_scaling
+	for orb in orbs:
+		orb.damage = new_damage
+
 
 func _ready() -> void:
 	print("OrbitWeapon ready, orb count: ", orb_count)
@@ -28,3 +35,7 @@ func update_orbs() -> void:
 		var orb = ORB.instantiate()
 		get_tree().root.get_child(0).add_child(orb)
 		orbs.append(orb)
+	
+	var player = GlobalVar.player
+	if player:
+		update_damage(player.attack_damage)

@@ -3,11 +3,6 @@ class_name Upgrades
 static func get_pool(player: Player) -> Array[Dictionary]:
 	return [
 		{
-			"name": "More Damage",
-			"description": "Projectiles deal 10 more damage",
-			"apply": func(): player.get_node("Weapons/ProjectileShooter").damage += 10
-		},
-		{
 			"name": "Faster Firing",
 			"description": "Shoots 0.1s more frequently",
 			"apply": func(): player.get_node("Weapons/ProjectileShooter").cooldown -= 0.1
@@ -34,26 +29,43 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		},
 		{
 			"name": "POW",
+			"ad_scaling": 1.0,
 			"description": "Fire an extra projectile each shot",
 			"apply": func(): player.get_node("Weapons/ProjectileShooter").projectile_count += 1
 		},
 		{
-		"name": "Orbit Orb",
-		"description": "Gain an orb that orbits you and damages enemies",
-		"condition": func(): return not is_instance_valid(player.get_node_or_null("Weapons/OrbitWeapon")),
-		"apply": func():
+			"name": "Orbit Orb Orb",
+			"description": "Gain an orb that orbits you and damages enemies",
+			"ad_scaling": 2.0,
+			"condition": func(): return not is_instance_valid(player.get_node_or_null("Weapons/OrbitWeapon")),
+			"apply": func():
 		var orbit_weapon = load("res://logic/gameplay_elements/weapons/orbit_weapon/orbit_weapon.tscn").instantiate()
 		orbit_weapon.name = "OrbitWeapon"
 		player.get_node("Weapons").add_child(orbit_weapon)
-		},
+},
 		{
-		"name": "Extra Orb",
-		"description": "Add another orbiting orb",
-		"condition": func(): return is_instance_valid(player.get_node_or_null("Weapons/OrbitWeapon")),
-		"apply": func():
+			"name": "Extra Orb",
+			"description": "Add another orbiting orb",
+			"ad_scaling": 2.0,
+			"condition": func(): return is_instance_valid(player.get_node_or_null("Weapons/OrbitWeapon")),
+			"apply": func():
 		var w = player.get_node("Weapons/OrbitWeapon")
 		w.orb_count += 1
 		w.update_orbs()
+		},
+		{
+		"name": "Attack Damage Up",
+		"description": "Gain 5 Attack Damage",
+		"apply": func():
+		player.attack_damage_base += 5
+		player.recalculate_weapon_damages()
+		},
+		{
+		"name": "Attack Damage Boost",
+		"description": "Gain 10% more Attack Damage",
+		"apply": func():
+		player.attack_damage_multiplier *= 1.1
+		player.recalculate_weapon_damages()
 		},
 		
 	]

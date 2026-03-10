@@ -1,6 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
+var attack_damage_base: float = 10.0
+var attack_damage_multiplier: float = 1.0
+
+var attack_damage: float:
+	get:
+		return attack_damage_base * attack_damage_multiplier
 @export var speed := 200.0
 @onready var health_handler: HealthHandler = $HealthHandler
 
@@ -27,6 +33,7 @@ func _ready() -> void:
 	GlobalVar.player = self
 	await get_tree().process_frame
 	hud = get_tree().root.find_child("HUD", true, false)
+	recalculate_weapon_damages()
 
 func _physics_process(_delta):
 	# ----------------------------
@@ -102,7 +109,7 @@ func _on_health_handler_took_damage(attacker_global_position: Vector2) -> void:
 func collect_xp(amount: int) -> void:
 	current_xp += amount
 	if hud:
-		hud.update(current_xp, xp_to_level_up, current_level)
+		hud.update(current_xp, xp_to_level_up, current_level, attack_damage)
 	if current_xp >= xp_to_level_up:
 		_level_up()
 
@@ -113,7 +120,7 @@ func _level_up() -> void:
 	xp_to_level_up = ceil(1.5 * xp_to_level_up)
 	current_xp = 0
 	if hud:
-		hud.update(current_xp, xp_to_level_up, current_level)
+		hud.update(current_xp, xp_to_level_up, current_level, attack_damage)
 	
 	var screen = UPGRADE_SCREEN.instantiate()
 	get_tree().root.add_child(screen)
@@ -123,3 +130,10 @@ func _level_up() -> void:
 		screen.queue_free()
 	)
 	get_tree().paused = true
+	
+func recalculate_weapon_damages() -> void:
+	for weapon in get_node("Weapons").get_children():
+		if weapon.has_method("update_damage"):
+			weapon.update_damage(attack_damage)
+	if hud:
+		hud.update(current_xp, xp_to_level_up, current_level, attack_damage)
