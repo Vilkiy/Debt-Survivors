@@ -4,7 +4,7 @@ extends CooldownWeapon
 const PROJECTILE :PackedScene = preload("uid://dxy5srsogv3fn")
 @onready var range_area: Area2D = $Range
 
-
+var spread_angle: float = 15.0  # degrees
 
 func _ready() -> void:
 	damage = 25.0
@@ -26,7 +26,7 @@ func on_cooldown_reached()->void:
 		if e == null or not is_instance_valid(e):
 			continue
 		if e.dead:
-			return
+			continue
 		
 		
 		var d_sq := global_position.distance_squared_to(e.global_position)
@@ -39,7 +39,9 @@ func on_cooldown_reached()->void:
 		
 		GlobalVar.game_handler.add_child(projectile)
 		projectile.global_position = global_position
-		projectile.direction = (closest.global_position - projectile.global_position).normalized()
+		var base_direction = (closest.global_position - projectile.global_position).normalized()
+		var offset_radians = deg_to_rad(randf_range(-spread_angle, spread_angle))
+		projectile.direction = base_direction.rotated(offset_radians)
 		projectile.speed = projectile_speed
 		projectile.damage = damage
 		
