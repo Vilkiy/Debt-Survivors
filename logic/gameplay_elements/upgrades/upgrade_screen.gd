@@ -9,6 +9,7 @@ signal upgrade_chosen
 
 func show_upgrades(player: Player) -> void:
 	var pool = Upgrades.get_pool(player)
+	pool = pool.filter(func(u): return not u.has("condition") or u["condition"].call()) # filter out weapon upgrades
 	pool.shuffle()
 	var choices = pool.slice(0, 3)
 	

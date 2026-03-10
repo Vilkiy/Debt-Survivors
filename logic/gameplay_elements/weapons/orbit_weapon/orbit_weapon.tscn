@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlfftm4knh8bb"]
+
+[ext_resource type="Script" uid="uid://di4e7y8p20nys" path="res://logic/gameplay_elements/weapons/orbit_weapon/orbit_weapon.gd" id="1_axn0j"]
+
+[node name="OrbitWeapon" type="Node2D" unique_id=1743880968]
+script = ExtResource("1_axn0j")

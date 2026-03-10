@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxy5srsogv3fn"]
 
-[ext_resource type="Script" uid="uid://bhi58fq02fjhw" path="res://logic/gameplay_elements/weapons/projectile/projectile.gd" id="1_uf182"]
+[ext_resource type="Script" uid="uid://bhi58fq02fjhw" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile/projectile.gd" id="1_uf182"]
 
 [sub_resource type="Gradient" id="Gradient_uf182"]
 offsets = PackedFloat32Array(1)
