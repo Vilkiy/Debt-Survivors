@@ -5,6 +5,7 @@ const PROJECTILE :PackedScene = preload("uid://dxy5srsogv3fn")
 @onready var range_area: Area2D = $Range
 
 var spread_angle: float = 15.0  # degrees
+var projectile_count: int = 1
 
 func _ready() -> void:
 	damage = 25.0
@@ -35,15 +36,17 @@ func on_cooldown_reached()->void:
 			closest = e
 	
 	if closest:
-		var projectile : Projectile = PROJECTILE.instantiate()
-		
-		GlobalVar.game_handler.add_child(projectile)
-		projectile.global_position = global_position
-		var base_direction = (closest.global_position - projectile.global_position).normalized()
-		var offset_radians = deg_to_rad(randf_range(-spread_angle, spread_angle))
-		projectile.direction = base_direction.rotated(offset_radians)
-		projectile.speed = projectile_speed
-		projectile.damage = damage
+		for i in projectile_count:
+			var projectile: Projectile = PROJECTILE.instantiate()
+			GlobalVar.game_handler.add_child(projectile)
+			projectile.global_position = global_position
+
+			var base_direction = (closest.global_position - projectile.global_position).normalized()
+			var offset_radians = deg_to_rad(randf_range(-spread_angle, spread_angle))
+			projectile.direction = base_direction.rotated(offset_radians)
+
+			projectile.speed = projectile_speed
+			projectile.damage = damage
 		
 		
 		
