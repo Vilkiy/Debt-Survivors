@@ -3,10 +3,11 @@ extends Control
 @onready var health_bar: ProgressBar = $HealthBar
 const DAMAGE_NUMBER = preload("res://logic/UI/damage_numbers/damage_number.tscn")
 
-@export var hp : float = 1000:
+@export var hp : float = 100:
 	set(value):
 		hp = value
-		health_bar.value = hp
+		if health_bar:
+			health_bar.value = hp
 var max_hp : float
 
 signal died

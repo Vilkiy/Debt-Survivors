@@ -137,7 +137,7 @@ func collect_xp(amount: int) -> void:
 
 func _level_up() -> void:
 	current_level += 1
-	xp_to_level_up = ceil(1.5 * xp_to_level_up)
+	xp_to_level_up = ceil(1.2 * xp_to_level_up)
 	current_xp = 0
 	if hud:
 		hud.update(current_xp, xp_to_level_up, current_level, attack_damage)
