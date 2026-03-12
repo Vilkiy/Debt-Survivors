@@ -33,7 +33,7 @@ func update_orbs() -> void:
 	
 	for i in orb_count:
 		var orb = ORB.instantiate()
-		get_tree().root.get_child(0).add_child(orb)
+		add_child(orb)  # parent to OrbitWeapon, not the root
 		orbs.append(orb)
 	
 	var player = GlobalVar.player
