@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 80.0
-@export var max_hp: int = 10
+@export var max_hp: int = 1000
 @export var damage: int = 5
 
 var hit_cooldown := 0.5  # seconds between hits
@@ -18,19 +18,27 @@ var hp: int
 var player: Node2D
 var dead : bool = false
 
+@onready var sprite: Sprite2D = $Sprite2D
+var original_color: Color
+var flash_timer: float = 0.0
+var flash_duration: float = 0.1
+
 func _ready():
 	hp = max_hp
-	
 	await get_tree().process_frame
-	
 	player = GlobalVar.player
-	
 	health_handler.died.connect(_on_death)
-	
-	#print("Groups:", get_groups())
+	original_color = sprite.modulate  # store the red colour from the scene
 	
 
 func _physics_process(_delta):
+	
+	# add this at the top of _physics_process
+	if flash_timer > 0.0:
+		flash_timer -= _delta
+		if flash_timer <= 0.0:
+			sprite.modulate = original_color
+	
 	if player == null:
 		return
 
@@ -63,7 +71,9 @@ func _on_death():
 	queue_free()
 	
 
-
+func flash_white() -> void:
+	sprite.modulate = Color.WHITE
+	flash_timer = flash_duration
 
 
 func get_separation_vector():

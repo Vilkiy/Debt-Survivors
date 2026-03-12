@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-var attack_damage_base: float = 10.0
+@export var attack_damage_base: float = 100.0
 var attack_damage_multiplier: float = 1.0
 
 var attack_damage: float:
