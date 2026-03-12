@@ -9,6 +9,7 @@ var attack_damage: float:
 		return attack_damage_base * attack_damage_multiplier
 @export var speed := 200.0
 @onready var health_handler: HealthHandler = $HealthHandler
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var current_xp: int = 0
 var current_level : int = 1
@@ -27,13 +28,15 @@ var dash_direction := Vector2.ZERO
 var dash_time_left := 0.0              # timer for dash duration
 var hud: HUD
 
-const UPGRADE_SCREEN = preload("res://logic/gameplay_elements/upgrades/upgrade_screen.tscn")
+const UPGRADE_SCREEN = preload("uid://b8js13fbvbdnw")
 
 func _ready() -> void:
 	GlobalVar.player = self
 	await get_tree().process_frame
 	hud = get_tree().root.find_child("HUD", true, false)
 	recalculate_weapon_damages()
+	animated_sprite_2d.play("idle")
+	
 
 func _physics_process(_delta):
 	# ----------------------------
@@ -85,24 +88,41 @@ func _physics_process(_delta):
 			dir.x -= 1
 		if Input.is_action_pressed("move_right"):
 			dir.x += 1
-
+		
 		if dir != Vector2.ZERO:
 			dir = dir.normalized()
 		velocity = dir * speed + knockback_velocity
-
+	
+	if dir.length() >0:
+		animated_sprite_2d.play("forward")
+		if dir.x <0:
+			animated_sprite_2d.flip_h = true
+		else:
+			animated_sprite_2d.flip_h = false
+		
+	else:
+		animated_sprite_2d.play("idle")
+	
 	# ----------------------------
 	move_and_slide()
-
+	
 	# Decay knockback over time
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction)
+	
 
 
 
-
-func _on_health_handler_took_damage(attacker_global_position: Vector2) -> void:
-	# Calculate direction away from enemy
+func deal_knockback(attacker_global_position: Vector2) -> void:
 	var direction = (global_position - attacker_global_position).normalized()
 	knockback_velocity = direction * knockback_strength
+	
+	
+
+func _on_health_handler_took_damage() -> void:
+	pass
+	# Calculate direction away from enemy
+	#var direction = (global_position - attacker_global_position).normalized()
+	#knockback_velocity = direction * knockback_strength
 	#print("player took damage: " + str(health_handler.hp))
 
 

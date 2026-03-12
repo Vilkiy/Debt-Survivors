@@ -11,7 +11,7 @@ var hit_timer := 0.0
 
 @export var separation_distance: float = 20.0
 @export var separation_force: float = 200.0
-const XP : PackedScene = preload("uid://lf31uwke02f8")
+const XP_PACKED : PackedScene = preload("uid://lf31uwke02f8")
 
 @onready var health_handler: HealthHandler = $HealthHandler
 var hp: int
@@ -46,19 +46,20 @@ func _physics_process(_delta):
 
 	# Automatic hit check (optional if not using signals)
 	if global_position.distance_to(player.global_position) < 20.0 and hit_timer <= 0.0:
-		player._on_health_handler_took_damage(global_position)
+		player.deal_knockback(global_position)
 		hit_timer = hit_cooldown
 	
 func _on_body_entered(body):
 	if body is Player:
-		body._on_health_handler_took_damage(global_position)
+		body.deal_knockback(global_position)
 
 
 func _on_death():
 	dead = true
-	var xp_object : XP = XP.instantiate()
+	var xp_object : XP = XP_PACKED.instantiate()
 	xp_object.global_position = global_position
-	get_parent().add_child(xp_object)
+	#get_parent().add_child(xp_object)
+	get_parent().call_deferred("add_child", xp_object)
 	queue_free()
 	
 
