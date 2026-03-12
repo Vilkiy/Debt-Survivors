@@ -55,9 +55,9 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		},
 		{
 		"name": "Attack Damage Up",
-		"description": "Gain 5 Attack Damage",
+		"description": "Gain 20 Attack Damage",
 		"apply": func():
-		player.attack_damage_base += 5
+		player.attack_damage_base += 20
 		player.recalculate_weapon_damages()
 		},
 		{

@@ -1,8 +1,9 @@
 class_name HealthHandler
 extends Control
 @onready var health_bar: ProgressBar = $HealthBar
+const DAMAGE_NUMBER = preload("res://logic/UI/damage_numbers/damage_number.tscn")
 
-@export var hp : float = 100:
+@export var hp : float = 1000:
 	set(value):
 		hp = value
 		health_bar.value = hp
@@ -13,16 +14,19 @@ signal took_damage
 
 func _ready() -> void:
 	max_hp = hp
+	health_bar.max_value = hp
 	health_bar.value = hp
-	
 
 
-func take_damage(damage_amount : float)->void:
+func take_damage(damage_amount: float) -> void:
 	if damage_amount > 0.0:
 		took_damage.emit()
+		var dn = DAMAGE_NUMBER.instantiate()
+		get_tree().root.get_child(0).add_child(dn)
+		dn.global_position = global_position + Vector2(0, -80)
+		dn.setup(damage_amount)
 	
-	
-	hp = clampf(hp - damage_amount,0.0,max_hp)
+	hp = clampf(hp - damage_amount, 0.0, max_hp)
 	
 	if hp <= 0.0:
 		die()

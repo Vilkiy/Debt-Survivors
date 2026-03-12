@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dbwsahc10r180"]
+
+[ext_resource type="Script" uid="uid://ob3mf4ir6fix" path="res://logic/UI/damage_numbers/damage_number.gd" id="1_i3qao"]
+
+[sub_resource type="FontFile" id="FontFile_i3qao"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_if62k"]
+font = SubResource("FontFile_i3qao")
+font_size = 24
+font_color = Color(2.7999666, 2.6192079, 2.6704848, 1)
+outline_size = 10
+outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="DamageNumber" type="Control" unique_id=716738467]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i3qao")
+
+[node name="Label" type="Label" parent="." unique_id=1831894253]
+z_index = 10
+layout_mode = 0
+offset_left = -21.0
+offset_top = -36.0
+offset_right = 19.0
+offset_bottom = -3.0
+theme_override_font_sizes/font_size = 24
+label_settings = SubResource("LabelSettings_if62k")
