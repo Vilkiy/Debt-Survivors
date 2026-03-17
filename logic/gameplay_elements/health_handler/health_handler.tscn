@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cvxdl3ykf0dih" path="res://logic/gameplay_elements/health_handler/health_handler.gd" id="1_8fwyt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fwyt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtsgt"]
 bg_color = Color(0.94509804, 0.15686275, 0.26666668, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghlcj"]
+bg_color = Color(0.31054342, 0.6056411, 0.28674772, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fwyt"]
+bg_color = Color(0.94509804, 0.15686275, 0.26666668, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kl5q"]
-bg_color = Color(0.6, 1, 0.6, 1)
+bg_color = Color(0.732128, 0.7235222, 0.7117897, 1)
 
 [node name="HealthHandler" type="Control" unique_id=1322258085]
 layout_mode = 3
@@ -17,6 +23,15 @@ script = ExtResource("1_8fwyt")
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 3.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gtsgt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ghlcj")
+show_percentage = false
+
+[node name="DashBar" type="ProgressBar" parent="." unique_id=2001776337]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 30.0
+offset_bottom = 6.0
 theme_override_styles/background = SubResource("StyleBoxFlat_8fwyt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kl5q")
 show_percentage = false

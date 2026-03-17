@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var level_label: Label = $VBoxContainer/LevelLabel
 @onready var xp_bar: ProgressBar = $Control/XPBar
 @onready var ad_label: Label = $VBoxContainer/ADLabel
+@onready var dash_cooldown_label: Label = $DashCooldownLabel
 
 func update(current_xp: int, xp_to_level_up: int, current_level: int, attack_damage: float) -> void:
 	level_label.text = "Level: " + str(current_level)

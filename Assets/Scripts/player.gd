@@ -10,7 +10,6 @@ var attack_damage: float:
 @export var speed := 200.0
 @onready var health_handler: HealthHandler = $HealthHandler
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
 var current_xp: int = 0
 var current_level : int = 1
 var xp_to_level_up : int = 100
@@ -21,7 +20,7 @@ var knockback_friction := 10.0  # how fast knockback slows down
 
 @export var dash_distance := 200.0     # total distance of dash
 @export var dash_duration := 0.15      # how long the dash lasts (seconds)
-@export var dash_cooldown := 0.3
+@export var dash_cooldown := 1.0
 var dash_timer := 0.0
 var is_dashing := false
 var dash_direction := Vector2.ZERO
@@ -36,13 +35,15 @@ func _ready() -> void:
 	hud = get_tree().root.find_child("HUD", true, false)
 	recalculate_weapon_damages()
 	animated_sprite_2d.play("idle")
-	
+
 
 func _physics_process(_delta):
 	# ----------------------------
 	# Update dash cooldown timer
 	if dash_timer > 0.0:
 		dash_timer -= _delta
+# Update HUD so cooldown label is live
+	health_handler.update_dash_cooldown(dash_timer, dash_cooldown)
 
 	var dir := Vector2.ZERO
 

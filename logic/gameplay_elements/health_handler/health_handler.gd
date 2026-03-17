@@ -1,6 +1,7 @@
 class_name HealthHandler
 extends Control
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var dash_bar: ProgressBar = $DashBar
 const DAMAGE_NUMBER = preload("res://logic/UI/damage_numbers/damage_number.tscn")
 
 @export var hp : float = 100:
@@ -31,8 +32,10 @@ func take_damage(damage_amount: float) -> void:
 	
 	if hp <= 0.0:
 		die()
-	
 
+func update_dash_cooldown(dash_timer: float, dash_cooldown: float) -> void:
+	dash_bar.max_value = dash_cooldown
+	dash_bar.value = dash_cooldown - dash_timer
 
 
 
