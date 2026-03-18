@@ -4,7 +4,7 @@ extends Node2D
 const ORB = preload("res://logic/gameplay_elements/weapons/orbit_weapon/orb/orb.tscn")
 
 var orb_count: int = 1
-var orbit_radius: float = 80.0
+var orbit_radius: float = 160.0
 var orbit_speed: float = 2.0  # radians per second
 var angle: float = 0.0
 var orbs: Array = []
