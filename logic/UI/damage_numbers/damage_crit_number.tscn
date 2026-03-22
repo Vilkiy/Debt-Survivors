@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dbdtn08ekxnii"]
+
+[ext_resource type="Script" uid="uid://wjb067sbmq1r" path="res://logic/UI/damage_numbers/damage_crit_number.gd" id="1_offwt"]
+
+[sub_resource type="SystemFont" id="SystemFont_8g8rq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_offwt"]
+font = SubResource("SystemFont_8g8rq")
+font_size = 40
+font_color = Color(0.9965157, 0.07253341, 6.3532593e-06, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageCritNumber" type="Control" unique_id=1183487270]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_offwt")
+
+[node name="damage_crit_number" type="Label" parent="." unique_id=1660585256]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -57.0
+offset_right = 40.0
+offset_bottom = -2.0
+text = "100!"
+label_settings = SubResource("LabelSettings_offwt")

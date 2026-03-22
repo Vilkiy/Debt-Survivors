@@ -25,10 +25,25 @@ cache/0/24/0/descent = 0.0
 cache/0/24/0/underline_position = 0.0
 cache/0/24/0/underline_thickness = 0.0
 cache/0/24/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_if62k"]
 font = SubResource("FontFile_i3qao")
-font_size = 24
+font_size = 30
 font_color = Color(2.7999666, 2.6192079, 2.6704848, 1)
 outline_size = 10
 outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -38,7 +53,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_i3qao")
 
-[node name="Label" type="Label" parent="." unique_id=1831894253]
+[node name="damage_number" type="Label" parent="." unique_id=1831894253]
 z_index = 10
 layout_mode = 0
 offset_left = -21.0
@@ -46,4 +61,5 @@ offset_top = -36.0
 offset_right = 19.0
 offset_bottom = -3.0
 theme_override_font_sizes/font_size = 24
+text = "100"
 label_settings = SubResource("LabelSettings_if62k")

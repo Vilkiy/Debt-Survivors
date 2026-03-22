@@ -1,7 +1,7 @@
-class_name DamageNumber
+class_name DamageCritNumber
 extends Control
 
-@onready var label: Label = $damage_number
+@onready var label: Label = $damage_crit_number
 
 static var z_counter: int = 10
 
@@ -9,17 +9,12 @@ var float_speed: float = 60.0
 var lifetime: float = 0.8
 var timer: float = 0.0
 
-func setup(amount: float, is_crit: bool = false) -> void:
+func setup(amount: float) -> void:
 	z_index = z_counter
 	z_counter += 1
-	label.text = str(int(amount))
+	label.text = str(int(amount)) + "!"
 	label.position.x += randf_range(-40.0, 40.0)
 	label.position.y += randf_range(-10.0, 10.0)
-
-	if is_crit:
-		label.text = str(int(amount)) + "!"
-		label.add_theme_color_override("font_color", Color(1.0, 0.4, 0.0))
-		scale = Vector2(1.5, 1.5)
 
 func _process(delta: float) -> void:
 	timer += delta
