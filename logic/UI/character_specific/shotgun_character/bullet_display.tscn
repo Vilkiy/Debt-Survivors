@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://by68j4348uh2i"]
+
+[ext_resource type="Script" uid="uid://7sy7xxvrby70" path="res://logic/UI/character_specific/shotgun_character/bullet_display.gd" id="1_7lo4c"]
+
+[node name="BulletDisplay" type="Node2D" unique_id=1837519910]
+script = ExtResource("1_7lo4c")

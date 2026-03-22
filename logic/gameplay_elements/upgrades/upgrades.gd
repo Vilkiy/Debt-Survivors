@@ -19,9 +19,12 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		},
 		{
 			"name": "POW",
-			"ad_scaling": 1.0,
-			"description": "Fire an extra projectile each shot",
-			"apply": func(): player.get_node("Weapons/ProjectileShooter").projectile_count += 1
+			"description": "1 Extra max bullet",
+			"apply": func():
+		var shooter = player.get_node("Weapons/ProjectileShooter")
+		shooter.max_ammo += 1
+		shooter.refill_ammo()
+		player.get_node("BulletDisplay").setup(shooter.max_ammo)
 		},
 		{
 			"name": "Orbit Orb Orb",

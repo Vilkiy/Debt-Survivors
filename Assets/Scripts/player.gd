@@ -21,7 +21,7 @@ var knockback_friction := 10.0  # how fast knockback slows down
 
 @export var dash_distance := 200.0     # total distance of dash
 @export var dash_duration := 0.15      # how long the dash lasts (seconds)
-@export var dash_cooldown := 1.0
+@export var dash_cooldown := 3.0
 var dash_timer := 0.0
 var is_dashing := false
 var dash_direction := Vector2.ZERO
@@ -35,6 +35,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	hud = get_tree().root.find_child("HUD", true, false)
 	recalculate_weapon_damages()
+	var shooter = get_node_or_null("Weapons/ProjectileShooter")
+	if shooter:
+		$BulletDisplay.setup(shooter.max_ammo)
 	animated_sprite_2d.play("idle")
 
 
@@ -70,6 +73,9 @@ func _physics_process(_delta):
 			dash_direction = dash_direction.normalized()
 
 		dash_timer = dash_cooldown
+		var shooter = get_node_or_null("Weapons/ProjectileShooter")
+		if shooter:
+			shooter.refill_ammo()
 
 	# ----------------------------
 	# Normal movement or dash
@@ -111,6 +117,14 @@ func _physics_process(_delta):
 	# Decay knockback over time
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction)
 	
+	var shooter = get_node_or_null("Weapons/ProjectileShooter")
+	if shooter:
+		$BulletDisplay.update_display(
+			shooter.current_ammo,
+			shooter.max_ammo,
+			shooter.reload_progress,
+			shooter.reload_time
+		)
 
 
 
