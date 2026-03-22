@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var attack_damage_base: float = 100.0
 var attack_damage_multiplier: float = 1.0
+var crit_chance: float = 0.1
 
 var attack_damage: float:
 	get:

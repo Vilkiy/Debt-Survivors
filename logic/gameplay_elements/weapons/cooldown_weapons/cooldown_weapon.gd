@@ -1,13 +1,12 @@
-## Weapon class which has cooldown and damage properties
 class_name CooldownWeapon
 extends Node2D
 
-var damage : float = 50
+var damage: float = 50
+#var crit_chance: float = 0.1  # 10% base
 
-var cooldown : float = 0.7
-var cooldown_timer : Timer
-var projectile_speed : float = 25.0
-
+var cooldown: float = 0.7
+var cooldown_timer: Timer
+var projectile_speed: float = 25.0
 
 func _ready() -> void:
 	cooldown_timer = Timer.new()
@@ -16,10 +15,13 @@ func _ready() -> void:
 	add_child(cooldown_timer)
 	cooldown_timer.start(cooldown)
 	cooldown_timer.timeout.connect(on_cooldown_reached)
-	
 
-func on_cooldown_reached()->void:
+func on_cooldown_reached() -> void:
 	pass
-	print("cooldown_reached")
-	
-	
+
+func roll_crit(base_damage: float) -> Dictionary:
+		var is_crit = randf() < GlobalVar.player.crit_chance
+		return {
+		"damage": base_damage * 1.5 if is_crit else base_damage,
+		"is_crit": is_crit
+	}

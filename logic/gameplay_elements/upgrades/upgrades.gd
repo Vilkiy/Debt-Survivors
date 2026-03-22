@@ -8,11 +8,6 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 			"apply": func(): player.get_node("Weapons/ProjectileShooter").cooldown -= 0.1
 		},
 		{
-			"name": "Wider Spread",
-			"description": "Projectiles spread 5 more degrees",
-			"apply": func(): player.get_node("Weapons/ProjectileShooter").spread_angle += 5
-		},
-		{
 			"name": "Move Faster",
 			"description": "Player moves 20 units faster",
 			"apply": func(): player.speed += 20
@@ -21,11 +16,6 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 			"name": "More Health",
 			"description": "Gain 20 max HP and heal to full",
 			"apply": func(): player.health_handler.max_hp += 20; player.health_handler.hp = player.health_handler.max_hp
-		},
-		{
-			"name": "More Knockback",
-			"description": "Knockback strength increased by 50",
-			"apply": func(): player.knockback_strength += 50
 		},
 		{
 			"name": "POW",
@@ -66,6 +56,11 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		"apply": func():
 		player.attack_damage_multiplier *= 1.1
 		player.recalculate_weapon_damages()
+		},
+		{
+		"name": "Eye of the Golem",
+		"description": "Gain 10% critical hit chance [color=red](50% extra damage)[/color]",
+		"apply": func(): player.crit_chance += 0.1
 		},
 		
 	]
