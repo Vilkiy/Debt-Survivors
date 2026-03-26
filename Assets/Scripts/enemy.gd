@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 80.0
-@export var max_hp: int = 1000
+@export var max_hp: int = 10000
 @export var damage: int = 5
 
 var hit_cooldown := 0.5  # seconds between hits

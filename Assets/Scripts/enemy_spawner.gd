@@ -36,6 +36,6 @@ func spawn_enemy():
 	get_parent().add_child(enemy)
 	
 	# scale stats with time
-	enemy.speed *= 1.0 + minutes * 0.1
-	enemy.health_handler.hp *= 1.0 + minutes * 0.2
-	enemy.health_handler.max_hp *= 1.0 + minutes * 0.2
+	enemy.speed *= 1.0 + minutes * 0.05
+	enemy.health_handler.hp *= 1.0 + minutes * 0.05
+	enemy.health_handler.max_hp *= 1.0 + minutes * 0.05

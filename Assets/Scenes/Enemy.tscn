@@ -25,6 +25,6 @@ offset_left = -15.0
 offset_top = 54.0
 offset_right = -15.0
 offset_bottom = 54.0
-hp = 1000.0
+hp = 600.0
 
 [connection signal="took_damage" from="HealthHandler" to="." method="flash_white"]

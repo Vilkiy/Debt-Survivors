@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
 [ext_resource type="Texture2D" uid="uid://cs2d8hck1djmj" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle1.png" id="5_y63lr"]
 [ext_resource type="Texture2D" uid="uid://ctbeltfnuis14" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle2.png" id="6_jjopo"]
+[ext_resource type="PackedScene" uid="uid://by68j4348uh2i" path="res://logic/UI/character_specific/shotgun_character/bullet_display.tscn" id="10_y63lr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y63lr"]
 animations = [{
@@ -67,6 +68,7 @@ offset_left = -15.0
 offset_top = 82.0
 offset_right = -15.0
 offset_bottom = 82.0
+hp = 120.0
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=632068975]
 script = ExtResource("4_e5q2x")
@@ -84,6 +86,8 @@ one_shot = true
 
 [node name="ProjectileShooter" parent="Weapons" unique_id=1510094829 instance=ExtResource("5_mifcl")]
 visible = false
+
+[node name="BulletDisplay" parent="." unique_id=1837519910 instance=ExtResource("10_y63lr")]
 
 [connection signal="took_damage" from="HealthHandler" to="." method="_on_health_handler_took_damage"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
