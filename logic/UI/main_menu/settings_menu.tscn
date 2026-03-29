@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://beuopal5e2n26"]
 
-[ext_resource type="Script" uid="uid://dn7ep6mlg5m3p" path="res://logic/UI/settings_menu.gd" id="1_o6duh"]
+[ext_resource type="Script" uid="uid://dn7ep6mlg5m3p" path="res://logic/UI/main_menu/settings_menu.gd" id="1_yuscb"]
 
 [node name="SettingsMenu" type="Control" unique_id=1242972951]
 layout_mode = 3
@@ -9,17 +9,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o6duh")
+script = ExtResource("1_yuscb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=415813718]
 layout_mode = 0
-offset_left = 873.0
-offset_top = 669.0
-offset_right = 1115.0
-offset_bottom = 767.0
+offset_left = 754.0
+offset_top = 677.0
+offset_right = 1103.0
+offset_bottom = 773.0
 
 [node name="back" type="Button" parent="VBoxContainer" unique_id=823099688]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Back"
 
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]

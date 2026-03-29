@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://dfix7tnp5v2sk"]
+
+[ext_resource type="Script" uid="uid://c6gea53s715kg" path="res://logic/UI/main_menu/main_menu.gd" id="1_v6ilq"]
+[ext_resource type="Script" uid="uid://cb321fk5k7wra" path="res://logic/UI/main_menu/arena_selection.gd" id="2_f0jl0"]
+[ext_resource type="Script" uid="uid://cdcxn1u52dct3" path="res://logic/UI/main_menu/hero_selection.gd" id="3_f0jl0"]
+
+[node name="MainMenu" type="Control" unique_id=619504660]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6ilq")
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=1349340126]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15100001
+anchor_top = 0.289
+anchor_right = 0.15100001
+anchor_bottom = 0.289
+offset_left = 0.07998657
+offset_top = -0.11999512
+offset_right = 385.08
+offset_bottom = 100.880005
+
+[node name="Label" type="Label" parent="Menu" unique_id=844165861]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 53
+text = "Debt survivors"
+
+[node name="start" type="Button" parent="Menu" unique_id=2079678790]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8302809, 0.86262995, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="controls" type="Button" parent="Menu" unique_id=2116876660]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 31
+text = "Controls
+"
+
+[node name="exit" type="Button" parent="Menu" unique_id=1651013900]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.28804985, 0.21826133, 1)
+theme_override_font_sizes/font_size = 31
+text = "Exit
+"
+
+[node name="HeroSelection" type="VBoxContainer" parent="." unique_id=512015382]
+layout_mode = 0
+offset_left = 1286.0
+offset_top = 254.0
+offset_right = 1752.0
+offset_bottom = 534.0
+
+[node name="Label" type="Label" parent="HeroSelection" unique_id=677445035]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Hero selection"
+horizontal_alignment = 1
+
+[node name="heroSelection" type="HBoxContainer" parent="HeroSelection" unique_id=1184632534]
+layout_mode = 2
+script = ExtResource("3_f0jl0")
+
+[node name="left" type="Button" parent="HeroSelection/heroSelection" unique_id=1954729107]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="previous" type="VBoxContainer" parent="HeroSelection/heroSelection" unique_id=1097300615]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="preview" type="TextureRect" parent="HeroSelection/heroSelection/previous" unique_id=1284714647]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="heroLabel" type="Label" parent="HeroSelection/heroSelection/previous" unique_id=2123710166]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="current" type="VBoxContainer" parent="HeroSelection/heroSelection" unique_id=1072974920]
+layout_mode = 2
+
+[node name="preview" type="TextureRect" parent="HeroSelection/heroSelection/current" unique_id=1109361925]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="heroLabel" type="Label" parent="HeroSelection/heroSelection/current" unique_id=1988008798]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="next" type="VBoxContainer" parent="HeroSelection/heroSelection" unique_id=2129917140]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="preview" type="TextureRect" parent="HeroSelection/heroSelection/next" unique_id=2074567874]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="heroLabel" type="Label" parent="HeroSelection/heroSelection/next" unique_id=843243486]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="right" type="Button" parent="HeroSelection/heroSelection" unique_id=191096924]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = ">"
+
+[node name="ArenaSelection" type="VBoxContainer" parent="." unique_id=949738218]
+layout_mode = 0
+offset_left = 1285.0
+offset_top = 636.0
+offset_right = 1751.0
+offset_bottom = 935.0
+
+[node name="Label" type="Label" parent="ArenaSelection" unique_id=954807165]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Arena selection"
+horizontal_alignment = 1
+
+[node name="arenaSelection" type="HBoxContainer" parent="ArenaSelection" unique_id=68840662]
+layout_mode = 2
+script = ExtResource("2_f0jl0")
+
+[node name="left" type="Button" parent="ArenaSelection/arenaSelection" unique_id=1300784289]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="previous" type="VBoxContainer" parent="ArenaSelection/arenaSelection" unique_id=1838841588]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="preview" type="TextureRect" parent="ArenaSelection/arenaSelection/previous" unique_id=822095589]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="arenaLabel" type="Label" parent="ArenaSelection/arenaSelection/previous" unique_id=2111590675]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="current" type="VBoxContainer" parent="ArenaSelection/arenaSelection" unique_id=1203314047]
+layout_mode = 2
+
+[node name="preview" type="TextureRect" parent="ArenaSelection/arenaSelection/current" unique_id=759884611]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="arenaLabel" type="Label" parent="ArenaSelection/arenaSelection/current" unique_id=581473762]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="next" type="VBoxContainer" parent="ArenaSelection/arenaSelection" unique_id=1643230642]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="preview" type="TextureRect" parent="ArenaSelection/arenaSelection/next" unique_id=1715115568]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="arenaLabel" type="Label" parent="ArenaSelection/arenaSelection/next" unique_id=1482122870]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="right" type="Button" parent="ArenaSelection/arenaSelection" unique_id=561768713]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = ">"
+
+[connection signal="pressed" from="Menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Menu/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="HeroSelection/heroSelection/left" to="HeroSelection/heroSelection" method="_on_left_pressed"]
+[connection signal="pressed" from="HeroSelection/heroSelection/right" to="HeroSelection/heroSelection" method="_on_right_pressed"]
+[connection signal="pressed" from="ArenaSelection/arenaSelection/left" to="ArenaSelection/arenaSelection" method="_on_left_pressed"]
+[connection signal="pressed" from="ArenaSelection/arenaSelection/right" to="ArenaSelection/arenaSelection" method="_on_right_pressed"]
