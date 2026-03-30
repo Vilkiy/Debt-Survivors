@@ -18,7 +18,7 @@ script = ExtResource("1_ubj65")
 position = Vector2(101, 36)
 
 [node name="Area2D2" parent="." unique_id=1130501876 instance=ExtResource("4_bqdwa")]
-position = Vector2(-49, 72)
+position = Vector2(-165, 132)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1163716513]
 
