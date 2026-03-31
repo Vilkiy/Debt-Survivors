@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dasbbm1bftmr2"]
 
 [ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="1_b2ifw"]
+[ext_resource type="Texture2D" uid="uid://ceclqmk0sqbh7" path="res://Assets/Scenes/images/bottle_swing1.png" id="2_evjpc"]
 [ext_resource type="Script" uid="uid://bpc3j056x6m" path="res://Assets/Scripts/camera_controller.gd" id="3_2thea"]
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_aee6e"]
 [ext_resource type="Texture2D" uid="uid://ddbjeeull4s7" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_forward1.png" id="3_n6g26"]
+[ext_resource type="Texture2D" uid="uid://pqqgytxiwht3" path="res://Assets/Scenes/images/bottle_swing2.png" id="3_o5e1w"]
+[ext_resource type="Texture2D" uid="uid://ce6nrfqdm11r4" path="res://Assets/Scenes/images/damaged.png" id="4_6t18s"]
 [ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="4_e5q2x"]
 [ext_resource type="Texture2D" uid="uid://bti26f1refcka" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_forward2.png" id="4_twodr"]
+[ext_resource type="Texture2D" uid="uid://f1ygsh8wgg65" path="res://Assets/Scenes/images/dead.png" id="5_3iaiu"]
 [ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
 [ext_resource type="Texture2D" uid="uid://cs2d8hck1djmj" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle1.png" id="5_y63lr"]
 [ext_resource type="Texture2D" uid="uid://ctbeltfnuis14" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle2.png" id="6_jjopo"]
@@ -13,6 +17,33 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y63lr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_evjpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o5e1w")
+}],
+"loop": false,
+"name": &"bottle_swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6t18s")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3iaiu")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_n6g26")
@@ -45,6 +76,7 @@ radius = 21.0
 height = 86.0
 
 [node name="Player" type="CharacterBody2D" unique_id=303781923]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_b2ifw")
@@ -52,7 +84,7 @@ script = ExtResource("1_b2ifw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1042249022]
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_y63lr")
-animation = &"idle"
+animation = &"damaged"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442219467]
@@ -85,9 +117,12 @@ one_shot = true
 [node name="Weapons" type="Node2D" parent="." unique_id=1487990838]
 
 [node name="ProjectileShooter" parent="Weapons" unique_id=1510094829 instance=ExtResource("5_mifcl")]
+unique_name_in_owner = true
 visible = false
 
 [node name="BulletDisplay" parent="." unique_id=1837519910 instance=ExtResource("10_y63lr")]
 
+[connection signal="died" from="HealthHandler" to="." method="_on_health_handler_died"]
 [connection signal="took_damage" from="HealthHandler" to="." method="_on_health_handler_took_damage"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
+[connection signal="firing" from="Weapons/ProjectileShooter" to="." method="_on_projectile_shooter_firing"]

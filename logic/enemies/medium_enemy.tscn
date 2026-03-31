@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lv8r8mjmn4ho"]
 
 [ext_resource type="Script" uid="uid://cgpavd420jvo2" path="res://logic/enemies/medium_enemy.gd" id="1_7m11k"]
-[ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_vhabp"]
+[ext_resource type="Texture2D" uid="uid://7lusja7rpkh8" path="res://logic/enemies/enemyB.png" id="2_7m11k"]
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_5yikg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pmh0"]
@@ -13,9 +13,9 @@ motion_mode = 1
 script = ExtResource("1_7m11k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
-modulate = Color(0.9647059, 0.007843138, 0.22352941, 1)
-scale = Vector2(1.33, 1.33)
-texture = ExtResource("2_vhabp")
+position = Vector2(5, -20.000002)
+scale = Vector2(0.3495, 0.523)
+texture = ExtResource("2_7m11k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
 shape = SubResource("CapsuleShape2D_3pmh0")

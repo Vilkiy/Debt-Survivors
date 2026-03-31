@@ -25,6 +25,8 @@ var flash_timer: float = 0.0
 var flash_duration: float = 0.1
 
 func _ready():
+	health_handler.hp = hp
+	health_handler._ready()
 	hp = max_hp
 	await get_tree().process_frame
 	player = GlobalVar.player

@@ -16,6 +16,8 @@ var reload_progress: float = 0.0
 var is_reloading: bool = false
 var attack_speed: float = 1.0
 
+signal firing
+
 func update_damage(attack_damage: float) -> void:
 	damage = base_damage + attack_damage * ad_scaling
 
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 func on_cooldown_reached() -> void:
 	if current_ammo <= 0:
 		return
-
+	
 	var enemies: Array[Node2D] = range_area.get_overlapping_bodies().filter(
 		func(a) -> bool: return a is Enemy
 	)
@@ -69,7 +71,9 @@ func on_cooldown_reached() -> void:
 		projectile.speed = projectile_speed
 		projectile.damage = crit_result["damage"]
 		projectile.is_crit = crit_result["is_crit"]
-
+	
+	firing.emit()
+	
 	current_ammo -= 1
 	if current_ammo <= 0:
 		is_reloading = true
