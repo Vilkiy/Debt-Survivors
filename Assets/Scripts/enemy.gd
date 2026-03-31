@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var speed: float = 80.0
 @export var max_hp: int = 10000
 @export var damage: int = 5
+@export var xpAmount: int = 10
 
 var hit_cooldown := 0.5  # seconds between hits
 var hit_timer := 0.0
@@ -65,6 +66,7 @@ func _on_body_entered(body):
 func _on_death():
 	dead = true
 	var xp_object : XP = XP_PACKED.instantiate()
+	xp_object.value = xpAmount
 	xp_object.global_position = global_position
 	#get_parent().add_child(xp_object)
 	get_parent().call_deferred("add_child", xp_object)

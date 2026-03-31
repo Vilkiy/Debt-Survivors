@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bk1sx0mo4u0p7"]
+
+[ext_resource type="Script" uid="uid://5xqtih5gc47s" path="res://logic/enemy_spawner/boss_spawner.gd" id="1_4iuwl"]
+
+[node name="BossSpawner" type="Node2D" unique_id=1660833515]
+script = ExtResource("1_4iuwl")
+
+[node name="Timer" type="Timer" parent="." unique_id=928521459]

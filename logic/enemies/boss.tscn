@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c0e8by04cbqvh"]
+
+[ext_resource type="Script" uid="uid://cgfg0ql1vl8bw" path="res://logic/enemies/boss.gd" id="1_m5y6m"]
+[ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_1xefn"]
+[ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_1bj3a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pmh0"]
+radius = 189.0
+height = 378.0
+
+[node name="Boss" type="CharacterBody2D" unique_id=345262250 groups=["enemy"]]
+motion_mode = 1
+script = ExtResource("1_m5y6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
+modulate = Color(0.9647059, 0.007843138, 0.22352941, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_1xefn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
+shape = SubResource("CapsuleShape2D_3pmh0")
+
+[node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_1bj3a")]
+offset_left = -15.0
+offset_top = 54.0
+offset_right = -15.0
+offset_bottom = 54.0
+hp = 600.0
+
+[connection signal="took_damage" from="HealthHandler" to="." method="flash_white"]

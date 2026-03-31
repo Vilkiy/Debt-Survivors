@@ -1,7 +1,6 @@
 class_name XP
 extends Area2D
 
-# Called when the node enters the scene tree for the first time.
 @export var value : int = 50
 func _ready() -> void:
 	pass

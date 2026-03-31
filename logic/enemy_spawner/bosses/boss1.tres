@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BossSpawnResource" format=3 uid="uid://c3rqd0pndkgfo"]
+
+[ext_resource type="Script" uid="uid://ct1svwi7r834l" path="res://logic/enemy_spawner/boss_spawn_resource.gd" id="1_b63c2"]
+[ext_resource type="PackedScene" uid="uid://c0e8by04cbqvh" path="res://logic/enemies/boss.tscn" id="1_bys6w"]
+
+[resource]
+script = ExtResource("1_b63c2")
+spawn_time_seconds = 60.0
+boss_scene = ExtResource("1_bys6w")
+metadata/_custom_type_script = "uid://ct1svwi7r834l"

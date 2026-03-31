@@ -28,8 +28,6 @@ func _ready():
 func _start_wave(index: int):
 	current_wave_index = index
 	wave_elapsed = 0.0
-	print("Started new waves")
-
 	var wave = waves[current_wave_index]
 
 	timer.wait_time = wave.spawn_interval
