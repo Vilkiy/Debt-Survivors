@@ -27,7 +27,10 @@ var heroes = [
 		"name": "Neckbeard Weeb",
 		"scene": "res://logic/playable_characters/Sword_Character.tscn",
 		"image": "res://visuals/characters/weeb_neckbeard_debt_survivor/place_holder_thumb.png",
-		"description": "Dual swords that alternate. [color=orange](120% AD)[/color]\n[color=red]Odd swings[/color] deal 3x crit damage\n[color=1780ac]Even swings[/color] boost speed. (+80%)"
+		"description": "Dual swords that alternate. [color=orange](120% AD)[/color]
+[color=red]Odd swings[/color] deal 3x crit damage
+[color=1780ac]Even swings[/color] boost speed. (+80%)
+[color=white]Dash to knock enemies back in a small radius *NOT IMPLIMENTED*[/color]"
 	}
 ]
 
