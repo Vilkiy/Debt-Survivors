@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://emosdkw2t8ga"]
+
+[ext_resource type="Script" uid="uid://0uyv2ca8kfl4" path="res://logic/gameplay_elements/weapons/character_specific/dual_sword_weapon/sword_weapon.gd" id="1_t6kkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6kkj"]
+size = Vector2(200, 380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37jb3"]
+size = Vector2(200, 380)
+
+[node name="SwordWeapon" type="Node2D" unique_id=1920256602]
+script = ExtResource("1_t6kkj")
+
+[node name="SwordLeft" type="Area2D" parent="." unique_id=1241792687]
+
+[node name="Polygon2D" type="Polygon2D" parent="SwordLeft" unique_id=1082678951]
+visible = false
+position = Vector2(0, -190)
+color = Color(0.6211424, 0.08601845, 0.1611385, 1)
+polygon = PackedVector2Array(-101, -189, 99, -190, 100, 191, -102, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordLeft" unique_id=696102822]
+position = Vector2(0, -190)
+shape = SubResource("RectangleShape2D_t6kkj")
+
+[node name="SwordRight" type="Area2D" parent="." unique_id=1308160149]
+
+[node name="Polygon2D" type="Polygon2D" parent="SwordRight" unique_id=1343489586]
+visible = false
+position = Vector2(0, -190)
+color = Color(0.09023314, 0.5021158, 0.6747892, 1)
+polygon = PackedVector2Array(-101, -189, 99, -190, 100, 191, -102, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordRight" unique_id=291739401]
+position = Vector2(0, -190)
+shape = SubResource("RectangleShape2D_37jb3")
+
+[connection signal="body_entered" from="SwordLeft" to="." method="_on_sword_left_body_entered"]
+[connection signal="body_entered" from="SwordRight" to="." method="_on_sword_right_body_entered"]

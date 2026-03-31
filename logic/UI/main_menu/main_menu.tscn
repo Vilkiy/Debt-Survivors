@@ -4,6 +4,14 @@
 [ext_resource type="Script" uid="uid://cb321fk5k7wra" path="res://logic/UI/main_menu/arena_selection.gd" id="2_f0jl0"]
 [ext_resource type="Script" uid="uid://cdcxn1u52dct3" path="res://logic/UI/main_menu/hero_selection.gd" id="3_f0jl0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0jl0"]
+bg_color = Color(0.1765281, 0.17624414, 0.21214283, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27253082, 0.27256057, 0.32115296, 1)
+
 [node name="MainMenu" type="Control" unique_id=619504660]
 layout_mode = 3
 anchors_preset = 15
@@ -194,6 +202,19 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = ">"
+
+[node name="heroDescription" type="PanelContainer" parent="." unique_id=2140220125]
+visible = false
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 206.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0jl0")
+
+[node name="descriptionLabel" type="RichTextLabel" parent="heroDescription" unique_id=1900814258]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="pressed" from="Menu/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/controls" to="." method="_on_controls_pressed"]

@@ -14,7 +14,6 @@ var current_ammo: int = 2
 var reload_time: float = 2.5
 var reload_progress: float = 0.0
 var is_reloading: bool = false
-var attack_speed: float = 1.0
 
 func update_damage(attack_damage: float) -> void:
 	damage = base_damage + attack_damage * ad_scaling
@@ -28,7 +27,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_reloading:
-		reload_progress += delta * attack_speed
+		reload_progress += delta * GlobalVar.player.attack_speed_multiplier
 		if reload_progress >= reload_time:
 			reload_progress = reload_time
 			current_ammo = max_ammo
