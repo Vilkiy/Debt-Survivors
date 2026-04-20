@@ -7,7 +7,8 @@ class_name WaveResource
 @export var enemy_weights: Dictionary = {
 	SpawnableEnemyTypes.Type.SMALL_FAST: 10,
 	SpawnableEnemyTypes.Type.MEDIUM	: 10,
-	SpawnableEnemyTypes.Type.BIG_SLOW: 10
+	SpawnableEnemyTypes.Type.BIG_SLOW: 10,
+	SpawnableEnemyTypes.Type.RANGED: 100
 
 }
 @export var scaling_enabled: bool = true

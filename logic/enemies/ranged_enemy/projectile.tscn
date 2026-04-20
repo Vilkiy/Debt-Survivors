@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://5hl4jhn8fusa"]
+
+[ext_resource type="Texture2D" uid="uid://bbvdnva60qcmw" path="res://logic/enemies/ranged_enemy/trash.png" id="1_nqxsk"]
+[ext_resource type="Script" uid="uid://bj6kjfm00d4l0" path="res://logic/enemies/ranged_enemy/enemy_projectile.gd" id="1_typol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_typol"]
+
+[node name="Projectile" type="Area2D" unique_id=1146943235]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_typol")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=472949724]
+scale = Vector2(0.050000004, 0.050000004)
+texture = ExtResource("1_nqxsk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=14637782]
+shape = SubResource("CircleShape2D_typol")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
