@@ -5,4 +5,5 @@ func _ready():
 	hp = 700
 	speed = 140
 	damage = 7
+	xpAmount = 20
 	super()
