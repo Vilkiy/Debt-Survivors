@@ -20,9 +20,9 @@ var player: Node2D
 var dead : bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
-var original_color: Color
+const HURT_SHADER = preload("res://logic/enemies/enemy_hurt.gdshader")
 var flash_timer: float = 0.0
-var flash_duration: float = 0.1
+const FLASH_DURATION: float = 0.5
 
 func _ready():
 	health_handler.hp = hp
@@ -31,8 +31,7 @@ func _ready():
 	await get_tree().process_frame
 	player = GlobalVar.player
 	health_handler.died.connect(_on_death)
-	original_color = sprite.modulate  # store the red colour from the scene
-	
+	health_handler.took_damage.connect(flash_red)
 
 func _physics_process(_delta):
 	
@@ -40,7 +39,7 @@ func _physics_process(_delta):
 	if flash_timer > 0.0:
 		flash_timer -= _delta
 		if flash_timer <= 0.0:
-			sprite.modulate = original_color
+			sprite.material = null
 	
 	if player == null:
 		return
@@ -75,9 +74,13 @@ func _on_death():
 	queue_free()
 	
 
-func flash_white() -> void:
-	sprite.modulate = Color.WHITE
-	flash_timer = flash_duration
+func flash_red() -> void:
+	if flash_timer <= 0.0:
+		var flashMaterial = ShaderMaterial.new()
+		flashMaterial.shader = HURT_SHADER
+		flashMaterial.set_shader_parameter("Flash Speed", 12.5)
+		sprite.material = flashMaterial
+		flash_timer = FLASH_DURATION
 
 
 func get_separation_vector():
