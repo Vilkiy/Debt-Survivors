@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://32ybhgqeahcr"]
+
+[ext_resource type="Script" uid="uid://cxpproi6podga" path="res://logic/UI/main_menu/keybind_input.gd" id="1_kon1m"]
+
+[node name="KeybindButton" type="HBoxContainer" unique_id=988676997]
+offset_right = 715.0
+offset_bottom = 77.0
+script = ExtResource("1_kon1m")
+
+[node name="KeybindDisplay" type="Label" parent="." unique_id=37829130]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Dash"
+
+[node name="KeybindPress" type="Button" parent="." unique_id=2100320628]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+text = "C"

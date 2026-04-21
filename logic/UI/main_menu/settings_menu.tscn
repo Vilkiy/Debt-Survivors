@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://beuopal5e2n26"]
 
 [ext_resource type="Script" uid="uid://dn7ep6mlg5m3p" path="res://logic/UI/main_menu/settings_menu.gd" id="1_yuscb"]
+[ext_resource type="PackedScene" uid="uid://32ybhgqeahcr" path="res://logic/UI/main_menu/keybind_input.tscn" id="2_wdsec"]
 
 [node name="SettingsMenu" type="Control" unique_id=1242972951]
 layout_mode = 3
@@ -22,5 +23,49 @@ offset_bottom = 773.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Back"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=583730394]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -480.0
+offset_right = 252.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeybindButton" parent="VBoxContainer2" unique_id=988676997 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "move_up"
+input_action_display = "Move Up"
+
+[node name="KeybindButton2" parent="VBoxContainer2" unique_id=689152159 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "move_down"
+input_action_display = "Move Down"
+
+[node name="KeybindButton3" parent="VBoxContainer2" unique_id=2136043627 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "move_left"
+input_action_display = "Move Left"
+
+[node name="KeybindButton4" parent="VBoxContainer2" unique_id=1629546560 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "move_right"
+input_action_display = "Move Right"
+
+[node name="KeybindButton5" parent="VBoxContainer2" unique_id=749667475 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "dash"
+input_action_display = "Dash"
+
+[node name="KeybindButton6" parent="VBoxContainer2" unique_id=998889944 instance=ExtResource("2_wdsec")]
+layout_mode = 2
+input_action_string = "pause"
+input_action_display = "Pause"
 
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
