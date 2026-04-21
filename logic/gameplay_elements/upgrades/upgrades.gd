@@ -3,14 +3,14 @@ class_name Upgrades
 static func get_pool(player: Player) -> Array[Dictionary]:
 	return [
 		{
-			"name": "Faster Firing",
-			"description": "Shoots 0.1s more frequently",
-			"apply": func(): player.get_node("Weapons/ProjectileShooter").cooldown -= 0.1
+			"name": "Attack Speed Up",
+			"description": "All weapons attack [color=yellow]10% faster[/color]",
+			"apply": func(): player.attack_speed_multiplier *= 1.1
 		},
 		{
 			"name": "Move Faster",
-			"description": "Player moves 20 units faster",
-			"apply": func(): player.speed += 20
+			"description": "Player moves 50 units faster",
+			"apply": func(): player.speed += 50
 		},
 		{
 			"name": "More Health",

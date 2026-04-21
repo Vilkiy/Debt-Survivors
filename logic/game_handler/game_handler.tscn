@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bthaq1vgessef"]
 
 [ext_resource type="Script" uid="uid://4v4h6hrnrbcd" path="res://logic/game_handler/game_handler.gd" id="1_ubj65"]
-[ext_resource type="PackedScene" uid="uid://dasbbm1bftmr2" path="res://Assets/Scenes/Player.tscn" id="2_nj3w4"]
 [ext_resource type="PackedScene" uid="uid://clcjepdcabo7c" path="res://Assets/Scenes/enemy_spawner.tscn" id="3_bqdwa"]
 [ext_resource type="PackedScene" uid="uid://lf31uwke02f8" path="res://logic/gameplay_elements/xp/xp.tscn" id="4_bqdwa"]
 [ext_resource type="Script" uid="uid://ct1svwi7r834l" path="res://logic/enemy_spawner/boss_spawn_resource.gd" id="4_lf3kq"]
@@ -12,8 +11,6 @@
 
 [node name="GameHandler" type="Node" unique_id=80113033]
 script = ExtResource("1_ubj65")
-
-[node name="CharacterBody2D" parent="." unique_id=303781923 instance=ExtResource("2_nj3w4")]
 
 [node name="EnemySpawner" parent="." unique_id=1660833515 instance=ExtResource("3_bqdwa")]
 

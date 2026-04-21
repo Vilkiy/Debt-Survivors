@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if(body is Player):
+	if body is Player:
 		body.collect_xp(value)
+		UpgradeCurrencyManager.add_coins(value / 10) 
 		queue_free()
