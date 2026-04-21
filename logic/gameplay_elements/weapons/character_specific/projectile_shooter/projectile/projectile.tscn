@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://dxy5srsogv3fn"]
 
-[ext_resource type="Script" uid="uid://bhi58fq02fjhw" path="res://logic/gameplay_elements/weapons/character_specific/projectile_shooter/projectile/projectile.gd" id="1_uf182"]
-
-[sub_resource type="Gradient" id="Gradient_uf182"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ikaoy"]
-gradient = SubResource("Gradient_uf182")
+[ext_resource type="Script" uid="uid://bhi58fq02fjhw" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile/projectile.gd" id="1_uf182"]
+[ext_resource type="Texture2D" uid="uid://bj2y6yhrr5n3e" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile/bottle.png" id="2_0y6qe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uf182"]
 
@@ -15,12 +9,12 @@ gradient = SubResource("Gradient_uf182")
 collision_layer = 0
 script = ExtResource("1_uf182")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=316131613]
-position = Vector2(-0.25000054, -0.5)
-scale = Vector2(0.06445313, 15.000001)
-texture = SubResource("GradientTexture1D_ikaoy")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641523150]
 shape = SubResource("CircleShape2D_uf182")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1235178867]
+position = Vector2(1, 2)
+scale = Vector2(0.1328125, 0.1328125)
+texture = ExtResource("2_0y6qe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

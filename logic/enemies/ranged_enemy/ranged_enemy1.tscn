@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b5yl0fhee6237"]
+
+[ext_resource type="Script" uid="uid://mfxh2q8w04hc" path="res://logic/enemies/ranged_enemy/ranged_enemy.gd" id="1_wwcd1"]
+[ext_resource type="Texture2D" uid="uid://cmpfhqonjk0b0" path="res://logic/enemies/ranged_enemy/shooter.png" id="2_aklv0"]
+[ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_mioyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwcd1"]
+size = Vector2(53, 140.5)
+
+[node name="rangedEnemy" type="CharacterBody2D" unique_id=345262250 groups=["enemy"]]
+motion_mode = 1
+script = ExtResource("1_wwcd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
+position = Vector2(1.9073486e-06, 0.99999964)
+scale = Vector2(0.1339375, 0.4889375)
+texture = ExtResource("2_aklv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
+shape = SubResource("RectangleShape2D_wwcd1")
+
+[node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("3_mioyi")]
+offset_left = -15.0
+offset_top = 54.0
+offset_right = -15.0
+offset_bottom = 54.0
+hp = 600.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="took_damage" from="HealthHandler" to="HealthHandler" method="_on_took_damage"]

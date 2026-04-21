@@ -31,6 +31,10 @@ var hud: HUD
 
 const UPGRADE_SCREEN = preload("uid://b8js13fbvbdnw")
 
+@onready var projectile_shooter: ProjectileShooter = %ProjectileShooter
+
+
+
 func _ready() -> void:
 	GlobalVar.player = self
 	await get_tree().process_frame
@@ -41,13 +45,11 @@ func _ready() -> void:
 		$BulletDisplay.setup(shooter.max_ammo)
 	animated_sprite_2d.play("idle")
 
-
 func _physics_process(_delta):
 	# ----------------------------
 	# Update dash cooldown timer
 	if dash_timer > 0.0:
 		dash_timer -= _delta
-# Update HUD so cooldown label is live
 	health_handler.update_dash_cooldown(dash_timer, dash_cooldown)
 
 	var dir := Vector2.ZERO
@@ -72,7 +74,7 @@ func _physics_process(_delta):
 			dash_direction = velocity.normalized()
 		else:
 			dash_direction = dash_direction.normalized()
-
+		
 		dash_timer = dash_cooldown
 		var shooter = get_node_or_null("Weapons/ProjectileShooter")
 		if shooter:
@@ -81,7 +83,6 @@ func _physics_process(_delta):
 	# ----------------------------
 	# Normal movement or dash
 	if is_dashing:
-		# Smooth dash velocity
 		var dash_speed = dash_distance / dash_duration
 		velocity = dash_direction * dash_speed + knockback_velocity
 
@@ -102,20 +103,23 @@ func _physics_process(_delta):
 			dir = dir.normalized()
 		velocity = dir * speed + knockback_velocity
 	
-	if dir.length() >0:
-		animated_sprite_2d.play("forward")
-		if dir.x <0:
-			animated_sprite_2d.flip_h = true
-		else:
-			animated_sprite_2d.flip_h = false
-		
-	else:
-		animated_sprite_2d.play("idle")
-	
 	# ----------------------------
+	# Animation (only update when not in a priority animation)
+	var priority_anims = ["dead", "damaged", "bottle_swing"]
+	if animated_sprite_2d.animation not in priority_anims or not animated_sprite_2d.is_playing():
+		if dir.length() > 0:
+			if animated_sprite_2d.animation != "forward":
+				animated_sprite_2d.play("forward")
+			if dir.x < 0:
+				animated_sprite_2d.flip_h = true
+			else:
+				animated_sprite_2d.flip_h = false
+		else:
+			if animated_sprite_2d.animation != "idle":
+				animated_sprite_2d.play("idle")
+
 	move_and_slide()
 	
-	# Decay knockback over time
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction)
 	
 	var shooter = get_node_or_null("Weapons/ProjectileShooter")
@@ -136,7 +140,12 @@ func deal_knockback(attacker_global_position: Vector2) -> void:
 	
 
 func _on_health_handler_took_damage() -> void:
-	pass
+	
+	if animated_sprite_2d.animation == "dead":
+		return
+	
+	
+	animated_sprite_2d.play("damaged")
 	# Calculate direction away from enemy
 	#var direction = (global_position - attacker_global_position).normalized()
 	#knockback_velocity = direction * knockback_strength
@@ -174,3 +183,15 @@ func recalculate_weapon_damages() -> void:
 			weapon.update_damage(attack_damage)
 	if hud:
 		hud.update(current_xp, xp_to_level_up, current_level, attack_damage)
+
+
+func _on_health_handler_died() -> void:
+	pass # Replace with function body.
+	animated_sprite_2d.play("dead")
+	
+
+
+func _on_projectile_shooter_firing() -> void:
+	
+	animated_sprite_2d.play("bottle_swing")
+	

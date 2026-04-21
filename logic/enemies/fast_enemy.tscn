@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cr6ov14cfwwr2"]
 
 [ext_resource type="Script" uid="uid://dkslr2ib8fsjr" path="res://logic/enemies/fast_enemy.gd" id="1_4881u"]
-[ext_resource type="Texture2D" uid="uid://dn15d76lbtup1" path="res://icon.svg" id="2_46jwh"]
+[ext_resource type="Texture2D" uid="uid://bm44raptps8ip" path="res://logic/enemies/enemyA.png" id="2_mxlkk"]
 [ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="3_4g3pt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pmh0"]
@@ -13,9 +13,9 @@ motion_mode = 1
 script = ExtResource("1_4881u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773107028]
-modulate = Color(0.9647059, 0.007843138, 0.22352941, 1)
-scale = Vector2(0.78, 0.78)
-texture = ExtResource("2_46jwh")
+position = Vector2(1.5625045, -1.8108404)
+scale = Vector2(0.17774998, 0.3207566)
+texture = ExtResource("2_mxlkk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889877522]
 shape = SubResource("CapsuleShape2D_3pmh0")
@@ -27,4 +27,4 @@ offset_right = -15.0
 offset_bottom = 54.0
 hp = 600.0
 
-[connection signal="took_damage" from="HealthHandler" to="." method="flash_white"]
+[connection signal="took_damage" from="HealthHandler" to="HealthHandler" method="flash_white"]

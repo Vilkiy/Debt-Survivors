@@ -10,6 +10,7 @@ spawn_radius = 600.0
 enemy_weights = {
 0: 10,
 1: 0,
-2: 0
+2: 0,
+3: 0
 }
 metadata/_custom_type_script = "uid://b2mebq0s4q6t5"

@@ -6,7 +6,8 @@ extends Node2D
 @export var enemy_scene_map = {
 	SpawnableEnemyTypes.Type.SMALL_FAST: preload("res://logic/enemies/fast_enemy.tscn"),
 	SpawnableEnemyTypes.Type.MEDIUM: preload("res://logic/enemies/medium_enemy.tscn"),
-	SpawnableEnemyTypes.Type.BIG_SLOW: preload("res://logic/enemies/big_enemy.tscn")
+	SpawnableEnemyTypes.Type.BIG_SLOW: preload("res://logic/enemies/big_enemy.tscn"),
+	SpawnableEnemyTypes.Type.RANGED: preload("res://logic/enemies/ranged_enemy/ranged_enemy1.tscn")
 }
 
 
@@ -67,7 +68,7 @@ func _choose_enemy_type(wave: WaveResource) -> int:
 		if roll <= cumulative:
 			return key
 
-	return wave.enemy_weights[0].type
+	return wave.enemy_weights.keys()[0]  # safe fallback
 	
 func _spawn_enemy():
 	if player == null:

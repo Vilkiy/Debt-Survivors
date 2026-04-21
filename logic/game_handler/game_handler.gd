@@ -13,5 +13,6 @@ func _ready() -> void:
 
 func _on_player_died() -> void:
 	get_tree().paused = true
+	await get_tree().create_timer(1.0).timeout;
 	var game_over = GAME_OVER_SCREEN.instantiate()
 	add_child(game_over)
