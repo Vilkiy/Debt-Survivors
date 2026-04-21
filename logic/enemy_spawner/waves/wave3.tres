@@ -7,10 +7,10 @@ script = ExtResource("1_yx2wt")
 duration = 180.0
 spawn_radius = 600.0
 enemy_weights = {
-0: 4,
-1: 4,
+0: 3,
+1: 3,
 2: 2,
-3: 1
+3: 2
 }
 is_last_wave = true
 metadata/_custom_type_script = "uid://b2mebq0s4q6t5"
