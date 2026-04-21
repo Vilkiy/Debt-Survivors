@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqeqyoeysrrl6"]
 
-[ext_resource type="Script" uid="uid://cqmv6ltt5tdfh" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.gd" id="1_gu24l"]
+[ext_resource type="Script" uid="uid://cqmv6ltt5tdfh" path="res://logic/gameplay_elements/weapons/character_specific/projectile_shooter/projectile_shooter.gd" id="1_gu24l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhlb"]
 radius = 381.04724

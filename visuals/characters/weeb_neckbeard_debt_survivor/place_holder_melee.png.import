@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj2y6yhrr5n3e"
-path="res://.godot/imported/bottle.png-055bb7d372a95ef43ad0af05bc811b18.ctex"
+uid="uid://cvro7h2klx06b"
+path="res://.godot/imported/place_holder_melee.png-211419be93de95d5bba5c339b9ced03b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile/bottle.png"
-dest_files=["res://.godot/imported/bottle.png-055bb7d372a95ef43ad0af05bc811b18.ctex"]
+source_file="res://visuals/characters/weeb_neckbeard_debt_survivor/place_holder_melee.png"
+dest_files=["res://.godot/imported/place_holder_melee.png-211419be93de95d5bba5c339b9ced03b.ctex"]
 
 [params]
 

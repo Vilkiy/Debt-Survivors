@@ -13,11 +13,12 @@ func _ready() -> void:
 	cooldown_timer.autostart = false
 	cooldown_timer.one_shot = false
 	add_child(cooldown_timer)
-	cooldown_timer.start(cooldown)
+	await get_tree().process_frame
+	cooldown_timer.start(cooldown / GlobalVar.player.attack_speed_multiplier)
 	cooldown_timer.timeout.connect(on_cooldown_reached)
 
 func on_cooldown_reached() -> void:
-	pass
+	cooldown_timer.wait_time = maxf(cooldown / GlobalVar.player.attack_speed_multiplier, 0.1)
 
 func roll_crit(base_damage: float) -> Dictionary:
 		var is_crit = randf() < GlobalVar.player.crit_chance

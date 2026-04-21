@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://badx37r6audp0"]
+
+[ext_resource type="Script" uid="uid://dwxv3hxlyy0au" path="res://Assets/Scripts/player.gd" id="1_055wm"]
+[ext_resource type="Texture2D" uid="uid://cvro7h2klx06b" path="res://visuals/characters/weeb_neckbeard_debt_survivor/place_holder_melee.png" id="4_8ens0"]
+[ext_resource type="Script" uid="uid://bpc3j056x6m" path="res://Assets/Scripts/camera_controller.gd" id="6_q6bx4"]
+[ext_resource type="PackedScene" uid="uid://c4f0g441r80dg" path="res://logic/gameplay_elements/health_handler/health_handler.tscn" id="7_oi4sk"]
+[ext_resource type="PackedScene" uid="uid://emosdkw2t8ga" path="res://logic/gameplay_elements/weapons/character_specific/dual_sword_weapon/sword_weapon.tscn" id="8_mtixf"]
+[ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="8_s5ldq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnrrw"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyq6n"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ens0"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtixf"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_055wm"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmh6g"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1o4d"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy02e"]
+atlas = ExtResource("4_8ens0")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsm66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnrrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyq6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ens0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtixf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_055wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmh6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1o4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy02e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7qjp"]
+radius = 17.0
+height = 80.43465
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twodr"]
+radius = 21.0
+height = 86.0
+
+[node name="Player" type="CharacterBody2D" unique_id=303781923]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_055wm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1042249022]
+position = Vector2(-3, 37)
+scale = Vector2(1.5174999, 1.5174999)
+sprite_frames = SubResource("SpriteFrames_dsm66")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442219467]
+position = Vector2(-3, 35.999996)
+scale = Vector2(1, 0.9200015)
+shape = SubResource("CapsuleShape2D_f7qjp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=541819718]
+script = ExtResource("6_q6bx4")
+
+[node name="HealthHandler" parent="." unique_id=1119927 instance=ExtResource("7_oi4sk")]
+offset_left = -15.0
+offset_top = 82.0
+offset_right = -15.0
+offset_bottom = 82.0
+hp = 120.0
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=632068975]
+script = ExtResource("8_s5ldq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1298899526]
+position = Vector2(-3, 33)
+shape = SubResource("CapsuleShape2D_twodr")
+debug_color = Color(0.9098039, 0.23921569, 0.28627452, 0.41960785)
+
+[node name="InvincibilityTimer" type="Timer" parent="HurtBox" unique_id=818573081]
+wait_time = 0.5
+one_shot = true
+
+[node name="Weapons" type="Node2D" parent="." unique_id=1487990838]
+
+[node name="SwordWeapon" parent="Weapons" unique_id=1920256602 instance=ExtResource("8_mtixf")]
+
+[connection signal="took_damage" from="HealthHandler" to="." method="_on_health_handler_took_damage"]
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
