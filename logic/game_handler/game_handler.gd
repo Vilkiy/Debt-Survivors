@@ -6,6 +6,7 @@ func _ready() -> void:
 	GlobalVar.game_handler = self
 	var player_scene = load(GameConfig.selected_hero)
 	var player = player_scene.instantiate()
+	$Parallax2D/TextureRect.texture = load(GameConfig.selected_arena)
 	add_child(player)
 	await get_tree().process_frame
 	GlobalVar.player.health_handler.died.connect(_on_player_died)

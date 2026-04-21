@@ -15,19 +15,14 @@ extends HBoxContainer
 # Arena data
 var arenas = [
 	{
-		"name": "Arena 1",
-		"scene": "res://logic/game_handler/game_handler.tscn",
-		"image": "res://logic/UI/main_menu/arenaPictures/arenaDefault.png"
+		"name": "Water Arena",
+		"scene": "res://Assets/Sprites/arena/water_tile_1080.png",
+		"image": "res://Assets/Sprites/arena/water_tile_1080.png"
 	},
 	{
-		"name": "Arena 2",
-		"scene": "res://logic/game_handler/game_handler.tscn",
-		"image": "res://logic/UI/main_menu/arenaPictures/arenaDefault.png"
-	},
-	{
-		"name": "Arena 3",
-		"scene": "res://logic/game_handler/game_handler.tscn",
-		"image": "res://logic/UI/main_menu/arenaPictures/arenaDefault.png"
+		"name": "Lava Arena",
+		"scene": "res://Assets/Sprites/arena/lava_tile_1080.png",
+		"image": "res://Assets/Sprites/arena/lava_icon_256.png"
 	}
 ]
 

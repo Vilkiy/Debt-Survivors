@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bthaq1vgessef"]
 
-[ext_resource type="Script" uid="uid://4v4h6hrnrbcd" path="res://logic/game_handler/game_handler.gd" id="1_ubj65"]
+[ext_resource type="Script" uid="uid://f1runc3ik5k4" path="res://logic/game_handler/game_handler.gd" id="1_ubj65"]
 [ext_resource type="PackedScene" uid="uid://clcjepdcabo7c" path="res://Assets/Scenes/enemy_spawner.tscn" id="3_bqdwa"]
 [ext_resource type="PackedScene" uid="uid://lf31uwke02f8" path="res://logic/gameplay_elements/xp/xp.tscn" id="4_bqdwa"]
 [ext_resource type="Script" uid="uid://ct1svwi7r834l" path="res://logic/enemy_spawner/boss_spawn_resource.gd" id="4_lf3kq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbehht6iafh3e" path="res://logic/UI/HUD/hud.tscn" id="6_dklq4"]
 [ext_resource type="PackedScene" uid="uid://bk1sx0mo4u0p7" path="res://logic/enemy_spawner/boss_spawner.tscn" id="8_cimbk"]
 [ext_resource type="Resource" uid="uid://c3rqd0pndkgfo" path="res://logic/enemy_spawner/bosses/boss1.tres" id="9_cimbk"]
+[ext_resource type="Texture2D" uid="uid://bf0mwbgykd7ww" path="res://Assets/Sprites/arena/lava_tile_1080.png" id="9_rg2pl"]
 
 [node name="GameHandler" type="Node" unique_id=80113033]
 script = ExtResource("1_ubj65")
@@ -36,3 +37,13 @@ script = ExtResource("5_cpkv1")
 
 [node name="BossSpawner" parent="." unique_id=842654551 instance=ExtResource("8_cimbk")]
 boss_spawns = Array[ExtResource("4_lf3kq")]([ExtResource("9_cimbk")])
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1623283154]
+scale = Vector2(2, 2)
+repeat_size = Vector2(1080, 1080)
+repeat_times = 4
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1751329952]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_rg2pl")
