@@ -87,13 +87,13 @@ func _on_sword_left_body_entered(body: Node2D) -> void:
 		return
 	var is_crit := randf() < GlobalVar.player.crit_chance
 	var final_damage := damage * 3.0 if is_crit else damage
-	body.health_handler.take_damage(final_damage, is_crit)
+	body.health_handler.take_damage(final_damage, "physical", is_crit)
 	
 func _on_sword_right_body_entered(body: Node2D) -> void:
 	if not _is_swinging or not body is Enemy or not is_instance_valid(body):
 		return
 	var result := roll_crit(damage)
-	body.health_handler.take_damage(result["damage"], result["is_crit"])
+	body.health_handler.take_damage(result["damage"], "physical", result["is_crit"])
 	_apply_speed_boost()
 		
 var _flash_timer: Timer

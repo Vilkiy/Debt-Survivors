@@ -5,7 +5,7 @@ extends Control
 @onready var dash_bar: ProgressBar = $DashBar
 const DAMAGE_NUMBER = preload("res://logic/UI/damage_numbers/damage_number.tscn")
 const CRIT_NUMBER = preload("res://logic/UI/damage_numbers/damage_crit_number.tscn")
-
+var _pending_damage_type: String = "physical"
 var resistances := {
 	"physical": 0.0,
 	"magic": 0.0
@@ -40,6 +40,7 @@ func take_damage(damage_amount: float, damage_type: String = "physical", is_crit
 	var final_damage = damage_amount * (1.0 - resistance)
 
 	_pending_damage += final_damage
+	_pending_damage_type = damage_type  # 👈 ADD THIS
 
 	if is_crit:
 		_pending_is_crit = true
@@ -53,10 +54,10 @@ func _flush_damage() -> void:
 		return
 	_damage_queued = false
 	took_damage.emit()
-	var dn = (CRIT_NUMBER if _pending_is_crit else DAMAGE_NUMBER).instantiate()
+	var dn = DAMAGE_NUMBER.instantiate()
 	get_tree().root.get_child(0).add_child(dn)
 	dn.global_position = global_position + Vector2(0, -80)
-	dn.setup(_pending_damage)
+	dn.setup(_pending_damage, _pending_damage_type, _pending_is_crit)
 	hp = clampf(hp - _pending_damage, 0.0, max_hp)
 	_pending_damage = 0.0
 	_pending_is_crit = false
