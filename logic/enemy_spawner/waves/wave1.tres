@@ -8,9 +8,9 @@ duration = 300.0
 spawn_interval = 5.0
 spawn_radius = 600.0
 enemy_weights = {
-0: 10,
+0: 8,
 1: 0,
 2: 0,
-3: 0
+3: 2
 }
 metadata/_custom_type_script = "uid://b2mebq0s4q6t5"

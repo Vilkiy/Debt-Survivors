@@ -4,7 +4,6 @@ extends Enemy
 @export var shoot_cooldown: float = 5.0
 
 var shoot_timer: float = 0.0
-
 const PROJECTILE = preload("res://logic/enemies/ranged_enemy/projectile.tscn")
 
 func _ready():
@@ -18,6 +17,12 @@ func _ready():
 
 
 func _physics_process(delta):
+
+	if flash_timer > 0.0:
+		flash_timer -= delta
+		if flash_timer <= 0.0:
+			sprite.material = null
+	
 	if player == null:
 		return
 
@@ -49,12 +54,3 @@ func shoot():
 	projectile.direction = dir
 
 	get_parent().add_child(projectile)
-
-
-func flash_red() -> void:
-	if flash_timer <= 0.0:
-		var flashMaterial = ShaderMaterial.new()
-		flashMaterial.shader = HURT_SHADER
-		flashMaterial.set_shader_parameter("Flash Speed", 12.5)
-		sprite.material = flashMaterial
-		flash_timer = FLASH_DURATION
