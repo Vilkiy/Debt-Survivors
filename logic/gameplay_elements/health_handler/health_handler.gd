@@ -6,6 +6,11 @@ extends Control
 const DAMAGE_NUMBER = preload("res://logic/UI/damage_numbers/damage_number.tscn")
 const CRIT_NUMBER = preload("res://logic/UI/damage_numbers/damage_crit_number.tscn")
 
+var resistances := {
+	"physical": 0.0,
+	"magic": 0.0
+}
+
 @export var hp : float = 100:
 	set(value):
 		hp = value
@@ -25,12 +30,20 @@ func _ready() -> void:
 	health_bar.max_value = hp
 	health_bar.value = hp
 
-func take_damage(damage_amount: float, is_crit: bool = false) -> void:
+func take_damage(damage_amount: float, damage_type: String = "physical", is_crit: bool = false) -> void:
 	if damage_amount <= 0.0:
 		return
-	_pending_damage += damage_amount
+
+	var resistance = resistances.get(damage_type, 0.0)
+	resistance = clamp(resistance, 0.0, 1.0)
+
+	var final_damage = damage_amount * (1.0 - resistance)
+
+	_pending_damage += final_damage
+
 	if is_crit:
 		_pending_is_crit = true
+
 	if not _damage_queued:
 		_damage_queued = true
 		call_deferred("_flush_damage")

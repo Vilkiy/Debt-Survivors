@@ -14,7 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	
 	if body is Enemy:
-		player.health_handler.take_damage(body.damage)
+		player.health_handler.take_damage(body.damage, "physical", false)
 		invincibility_timer.start()
 		
 	

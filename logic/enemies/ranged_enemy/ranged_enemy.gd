@@ -12,6 +12,9 @@ func _ready():
 	speed = 100
 	damage = 10
 	xpAmount = 30
+	
+	health_handler.resistances["physical"] = 0.0
+	health_handler.resistances["magic"] = 0.7
 
 	super()
 
