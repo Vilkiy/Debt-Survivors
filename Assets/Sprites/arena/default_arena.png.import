@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy80abu50gqhu"
-path="res://.godot/imported/arenaDefault.png-756264c45b807f366e8454fa829e972a.ctex"
+path="res://.godot/imported/default_arena.png-56238777eab7ac2f57065ffcf608497a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logic/UI/main_menu/arenaPictures/arenaDefault.png"
-dest_files=["res://.godot/imported/arenaDefault.png-756264c45b807f366e8454fa829e972a.ctex"]
+source_file="res://Assets/Sprites/arena/default_arena.png"
+dest_files=["res://.godot/imported/default_arena.png-56238777eab7ac2f57065ffcf608497a.ctex"]
 
 [params]
 

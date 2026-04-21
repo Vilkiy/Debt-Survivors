@@ -15,6 +15,11 @@ extends HBoxContainer
 # Arena data
 var arenas = [
 	{
+		"name": "Default Arena",
+		"scene": "",
+		"image": "res://Assets/Sprites/arena/default_arena.png"
+	},
+	{
 		"name": "Water Arena",
 		"scene": "res://Assets/Sprites/arena/water_tile_1080.png",
 		"image": "res://Assets/Sprites/arena/water_icon_256.png"
