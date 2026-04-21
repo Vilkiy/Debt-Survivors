@@ -1,5 +1,10 @@
 extends Control
 
+@onready var coin_label: Label = $CurrencyContainer/Currency
+
+func _ready() -> void:
+	coin_label.text = "$ " + str(UpgradeCurrencyManager.coins)
+
 func _on_start_pressed():
 	var hero_scene = $HeroSelection/heroSelection.get_selected_hero_scene()
 	GameConfig.selected_hero = hero_scene

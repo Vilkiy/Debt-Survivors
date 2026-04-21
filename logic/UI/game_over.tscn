@@ -40,4 +40,9 @@ process_mode = 3
 layout_mode = 2
 text = "Restart"
 
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=138063442]
+layout_mode = 2
+text = "Main Menu"
+
 [connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/MainMenuButton" to="CanvasLayer" method="_on_main_menu_button_pressed"]
