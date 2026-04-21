@@ -17,7 +17,7 @@ var arenas = [
 	{
 		"name": "Water Arena",
 		"scene": "res://Assets/Sprites/arena/water_tile_1080.png",
-		"image": "res://Assets/Sprites/arena/water_tile_1080.png"
+		"image": "res://Assets/Sprites/arena/water_icon_256.png"
 	},
 	{
 		"name": "Lava Arena",
