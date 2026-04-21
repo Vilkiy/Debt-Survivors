@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cdclhdmcotrge" path="res://Assets/Scenes/hurt_box.gd" id="4_e5q2x"]
 [ext_resource type="Texture2D" uid="uid://bti26f1refcka" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_forward2.png" id="4_twodr"]
 [ext_resource type="Texture2D" uid="uid://f1ygsh8wgg65" path="res://Assets/Scenes/images/dead.png" id="5_3iaiu"]
-[ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/cooldown_weapons/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
+[ext_resource type="PackedScene" uid="uid://dqeqyoeysrrl6" path="res://logic/gameplay_elements/weapons/character_specific/projectile_shooter/projectile_shooter.tscn" id="5_mifcl"]
 [ext_resource type="Texture2D" uid="uid://cs2d8hck1djmj" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle1.png" id="5_y63lr"]
 [ext_resource type="Texture2D" uid="uid://ctbeltfnuis14" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle2.png" id="6_jjopo"]
 [ext_resource type="PackedScene" uid="uid://by68j4348uh2i" path="res://logic/UI/character_specific/shotgun_character/bullet_display.tscn" id="10_y63lr"]
@@ -100,7 +100,7 @@ offset_left = -15.0
 offset_top = 82.0
 offset_right = -15.0
 offset_bottom = 82.0
-hp = 120.0
+hp = 1.0
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=632068975]
 script = ExtResource("4_e5q2x")

@@ -31,7 +31,7 @@ anchor_bottom = 0.289
 offset_left = 0.07998657
 offset_top = -0.11999512
 offset_right = 385.08
-offset_bottom = 100.880005
+offset_bottom = 378.88
 
 [node name="Label" type="Label" parent="Menu" unique_id=844165861]
 layout_mode = 2
@@ -45,11 +45,17 @@ theme_override_colors/font_color = Color(0.8302809, 0.86262995, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Start"
 
+[node name="Button" type="Button" parent="Menu" unique_id=102612159]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59422916, 0.95309395, 0.9073242, 1)
+theme_override_font_sizes/font_size = 40
+text = "Shop"
+
 [node name="controls" type="Button" parent="Menu" unique_id=2116876660]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 40
 text = "Controls
 "
 
@@ -58,7 +64,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.28804985, 0.21826133, 1)
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 40
 text = "Exit
 "
 
@@ -215,6 +221,17 @@ layout_mode = 2
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="CurrencyContainer" type="PanelContainer" parent="." unique_id=1830474430]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 457.0
+offset_right = 875.0
+offset_bottom = 520.0
+
+[node name="Currency" type="Label" parent="CurrencyContainer" unique_id=235706339]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
 
 [connection signal="pressed" from="Menu/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/controls" to="." method="_on_controls_pressed"]

@@ -15,6 +15,9 @@ layout_mode = 2
 [node name="ADLabel" type="Label" parent="VBoxContainer" unique_id=456041984]
 layout_mode = 2
 
+[node name="CurrencyLabel" type="Label" parent="VBoxContainer" unique_id=1459997558]
+layout_mode = 2
+
 [node name="Control" type="Control" parent="." unique_id=1217996962]
 layout_mode = 3
 anchors_preset = 15
