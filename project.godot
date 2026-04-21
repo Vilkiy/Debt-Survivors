@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameConfig="*uid://xmkg3h3kldq5"
 GlobalVar="*uid://1pxcn8ly5l2n"
+GameConfig="*uid://xmkg3h3kldq5"
 
 [display]
 
