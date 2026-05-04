@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2u8e6goxmt12"]
 
 [ext_resource type="Script" uid="uid://dtpy58uaaoeao" path="res://logic/gameplay_elements/weapons/orbit_weapon/orb/orb.gd" id="1_300el"]
+[ext_resource type="Texture2D" uid="uid://cil1bv4ngonae" path="res://logic/gameplay_elements/weapons/orbit_weapon/orb/elmenhoster.png" id="2_cm7wt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_exvkk"]
 
@@ -11,7 +12,13 @@ script = ExtResource("1_300el")
 shape = SubResource("CircleShape2D_exvkk")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=383576925]
+visible = false
 color = Color(1, 1, 0.078431375, 1)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, -3.5001183, 10, 0.06732559, 10, 10, -10, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=62975431]
+position = Vector2(7, 6)
+scale = Vector2(0.31300005, 0.31300005)
+texture = ExtResource("2_cm7wt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cs2d8hck1djmj" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle1.png" id="5_y63lr"]
 [ext_resource type="Texture2D" uid="uid://ctbeltfnuis14" path="res://visuals/characters/homeless_debt_survivor/dept_survivor_idle2.png" id="6_jjopo"]
 [ext_resource type="PackedScene" uid="uid://by68j4348uh2i" path="res://logic/UI/character_specific/shotgun_character/bullet_display.tscn" id="10_y63lr"]
+[ext_resource type="PackedScene" uid="uid://dlfftm4knh8bb" path="res://logic/gameplay_elements/weapons/orbit_weapon/orbit_weapon.tscn" id="14_symur"]
 [ext_resource type="Script" uid="uid://dpvwuppksliqu" path="res://Assets/Scenes/pause_menu.gd" id="15_3iaiu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y63lr"]
@@ -120,6 +121,8 @@ one_shot = true
 [node name="ProjectileShooter" parent="Weapons" unique_id=1510094829 instance=ExtResource("5_mifcl")]
 unique_name_in_owner = true
 visible = false
+
+[node name="OrbitWeapon" parent="Weapons" unique_id=1743880968 instance=ExtResource("14_symur")]
 
 [node name="BulletDisplay" parent="." unique_id=1837519910 instance=ExtResource("10_y63lr")]
 
