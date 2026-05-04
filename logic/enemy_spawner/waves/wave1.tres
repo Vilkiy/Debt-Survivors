@@ -6,6 +6,8 @@
 script = ExtResource("1_t18jy")
 duration = 300.0
 spawn_interval = 5.0
+spawn_count = 3
+spawn_count_max = 8
 spawn_radius = 600.0
 enemy_weights = {
 0: 8,

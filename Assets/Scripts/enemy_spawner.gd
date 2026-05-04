@@ -69,28 +69,29 @@ func _choose_enemy_type(wave: WaveResource) -> int:
 			return key
 
 	return wave.enemy_weights.keys()[0]  # safe fallback
-	
+
 func _spawn_enemy():
 	if player == null:
 		return
 
 	var wave = waves[current_wave_index]
 
-	var enemy_type = _choose_enemy_type(wave)
-	var scene: PackedScene = enemy_scene_map[enemy_type]
+	var count = randi_range(wave.spawn_count, max(wave.spawn_count, wave.spawn_count_max))
+	for i in count:
+		var enemy_type = _choose_enemy_type(wave)
+		var scene: PackedScene = enemy_scene_map[enemy_type]
 
-	var enemy = scene.instantiate()
+		var enemy = scene.instantiate()
 
-	# spawn around player
-	var angle = randf() * TAU
-	var pos = player.global_position + \
-		Vector2.from_angle(angle) * wave.spawn_radius
+		var angle = randf() * TAU
+		var pos = player.global_position + \
+			Vector2.from_angle(angle) * wave.spawn_radius
 
-	enemy.global_position = pos
-	get_tree().current_scene.add_child(enemy)
+		enemy.global_position = pos
+		get_tree().current_scene.add_child(enemy)
 
-	if wave.scaling_enabled:
-		_apply_scaling(enemy)
+		if wave.scaling_enabled:
+			_apply_scaling(enemy)
 		
 		
 func _apply_scaling(enemy):

@@ -6,6 +6,8 @@
 script = ExtResource("1_e0xer")
 duration = 300.0
 spawn_interval = 4.0
+spawn_count = 5
+spawn_count_max = 10
 spawn_radius = 600.0
 enemy_weights = {
 0: 5,

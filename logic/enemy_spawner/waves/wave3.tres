@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_yx2wt")
 duration = 180.0
+spawn_count = 10
 spawn_radius = 600.0
 enemy_weights = {
 0: 3,

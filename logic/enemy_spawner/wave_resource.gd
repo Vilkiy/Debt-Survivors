@@ -3,6 +3,8 @@ class_name WaveResource
 
 @export var duration: float = 30.0
 @export var spawn_interval: float = 2.0
+@export var spawn_count: int = 1
+@export var spawn_count_max: int = 1  # if > spawn_count, randomizes between the two
 @export var spawn_radius: float = 300.0
 @export var enemy_weights: Dictionary = {
 	SpawnableEnemyTypes.Type.SMALL_FAST: 10,

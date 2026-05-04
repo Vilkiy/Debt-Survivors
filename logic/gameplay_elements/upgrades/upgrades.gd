@@ -20,6 +20,7 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		{
 			"name": "POW",
 			"description": "1 Extra max bullet",
+			"condition": func(): return is_instance_valid(player.get_node_or_null("Weapons/ProjectileShooter")),
 			"apply": func():
 		var shooter = player.get_node("Weapons/ProjectileShooter")
 		shooter.max_ammo += 1
@@ -64,6 +65,14 @@ static func get_pool(player: Player) -> Array[Dictionary]:
 		"name": "Eye of the Golem",
 		"description": "Gain 10% critical hit chance [color=red](50% extra damage)[/color]",
 		"apply": func(): player.crit_chance += 0.1
+		},
+		{
+		"name": "One to Seal",
+		"description": "Even swing speed boost increased by [color=cyan]10%[/color]",
+		"condition": func(): return is_instance_valid(player.get_node_or_null("Weapons/SwordWeapon")),
+		"apply": func():
+		var sword = player.get_node("Weapons/SwordWeapon")
+		sword.speed_boost_amount *= 1.1
 		},
 		
 	]

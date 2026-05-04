@@ -1,7 +1,7 @@
 class_name ProjectileShooter
 extends CooldownWeapon
 
-const PROJECTILE: PackedScene = preload("uid://dxy5srsogv3fn")
+const PROJECTILE: PackedScene = preload("res://logic/gameplay_elements/weapons/character_specific/projectile_shooter/projectile/projectile.tscn")
 @onready var range_area: Area2D = $Range
 
 @export var spread_angle: float = 20.0
@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 			is_reloading = false
 
 func on_cooldown_reached() -> void:
+	
 	if current_ammo <= 0:
 		return
 	
@@ -58,7 +59,7 @@ func on_cooldown_reached() -> void:
 	if closest == null:
 		return
 
-	var crit_result = roll_crit(damage / projectile_count)
+	var crit_result = roll_crit(damage)
 
 	for i in projectile_count:
 		var projectile: Projectile = PROJECTILE.instantiate()
@@ -71,6 +72,7 @@ func on_cooldown_reached() -> void:
 		projectile.damage = crit_result["damage"]
 		projectile.is_crit = crit_result["is_crit"]
 	
+	print("firing, damage per pellet: ", crit_result["damage"])
 	firing.emit()
 	
 	current_ammo -= 1
