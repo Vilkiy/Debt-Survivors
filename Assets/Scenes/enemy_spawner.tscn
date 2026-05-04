@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://clcjepdcabo7c"]
 
 [ext_resource type="Script" uid="uid://djxvkuw11p5jg" path="res://Assets/Scripts/enemy_spawner.gd" id="1_jsibv"]
-[ext_resource type="Script" uid="uid://b2mebq0s4q6t5" path="res://logic/enemy_spawner/wave_resource.gd" id="2_0n05r"]
-[ext_resource type="Resource" uid="uid://bkctpcb06s8pv" path="res://logic/enemy_spawner/waves/wave1.tres" id="3_jfmnq"]
-[ext_resource type="Resource" uid="uid://g1fuhmih3stx" path="res://logic/enemy_spawner/waves/wave2.tres" id="4_51bqp"]
-[ext_resource type="Resource" uid="uid://dravmqwme3ttb" path="res://logic/enemy_spawner/waves/wave3.tres" id="5_fjd35"]
 
 [node name="EnemySpawner" type="Node2D" unique_id=1660833515]
 script = ExtResource("1_jsibv")
-waves = Array[ExtResource("2_0n05r")]([ExtResource("3_jfmnq"), ExtResource("4_51bqp"), ExtResource("5_fjd35")])
 
 [node name="Timer" type="Timer" parent="." unique_id=928521459]

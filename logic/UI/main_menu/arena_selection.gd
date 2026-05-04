@@ -17,17 +17,32 @@ var arenas = [
 	{
 		"name": "Default Arena",
 		"scene": "",
-		"image": "res://Assets/Sprites/arena/default_arena.png"
+		"image": "res://Assets/Sprites/arena/default_arena.png",
+		"waves": [
+			"res://logic/enemy_spawner/waves/wave1.tres",
+			"res://logic/enemy_spawner/waves/wave2.tres",
+			"res://logic/enemy_spawner/waves/wave3.tres"
+		]
 	},
 	{
 		"name": "Water Arena",
 		"scene": "res://Assets/Sprites/arena/water_tile_1080.png",
-		"image": "res://Assets/Sprites/arena/water_icon_256.png"
+		"image": "res://Assets/Sprites/arena/water_icon_256.png",
+		"waves": [
+			"res://logic/enemy_spawner/waves/wave2.tres",
+			"res://logic/enemy_spawner/waves/wave1.tres",
+			"res://logic/enemy_spawner/waves/wave3.tres"
+		]
 	},
 	{
 		"name": "Lava Arena",
 		"scene": "res://Assets/Sprites/arena/lava_tile_1080.png",
-		"image": "res://Assets/Sprites/arena/lava_icon_256.png"
+		"image": "res://Assets/Sprites/arena/lava_icon_256.png",
+		"waves": [
+			"res://logic/enemy_spawner/waves/wave3.tres",
+			"res://logic/enemy_spawner/waves/wave1.tres",
+			"res://logic/enemy_spawner/waves/wave2.tres"
+		]
 	}
 ]
 
@@ -73,3 +88,6 @@ func _on_right_pressed() -> void:
 
 func get_selected_arena_scene():
 	return arenas[index]["scene"]
+
+func get_selected_arena_waves():
+	return arenas[index]["waves"]

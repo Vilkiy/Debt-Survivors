@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var waves: Array[WaveResource]
+var waves: Array[WaveResource]
 
 # enum → scene mapping
 @export var enemy_scene_map = {
@@ -22,14 +22,29 @@ var total_elapsed := 0.0
 func _ready():
 	await get_tree().process_frame
 	player = GlobalVar.player
-
+	waves = _load_waves_from_paths(GameConfig.selected_arena_waves)
+	
 	timer.timeout.connect(_spawn_enemy)
 	_start_wave(0)
-	
+
+func _load_waves_from_paths(paths: Array) -> Array[WaveResource]:
+	var loaded_waves: Array[WaveResource] = []
+
+	for path in paths:
+		var res = load(path)
+		if res is WaveResource:
+			loaded_waves.append(res)
+		else:
+			push_warning("Invalid wave resource at: %s" % path)
+
+	return loaded_waves
+
 func _start_wave(index: int):
 	current_wave_index = index
 	wave_elapsed = 0.0
 	var wave = waves[current_wave_index]
+	
+	print(wave)
 
 	timer.wait_time = wave.spawn_interval
 	timer.start()
