@@ -34,6 +34,7 @@ alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=490815060]
 layout_mode = 2
 text = "GAME OVER"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=549776518]
 layout_mode = 2
