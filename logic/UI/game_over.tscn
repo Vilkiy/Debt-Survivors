@@ -35,6 +35,19 @@ alignment = 1
 layout_mode = 2
 text = "GAME OVER"
 
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=549776518]
+layout_mode = 2
+text = "Summary"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=1823915270]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="LevelLable" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=422206405]
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="Button" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=1880749115]
 process_mode = 3
 layout_mode = 2
