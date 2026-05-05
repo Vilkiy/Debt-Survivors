@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://bxnst6tk1oomo" path="res://Assets/Sprites/Island.png" id="1_ggxcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggxcs"]
-size = Vector2(246, 150)
+size = Vector2(373, 224)
 
 [node name="Island" type="StaticBody2D" unique_id=969311678]
 collision_layer = 3
 collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458260966]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_ggxcs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=808522799]
-position = Vector2(0, 41)
+position = Vector2(0.5, 63)
 shape = SubResource("RectangleShape2D_ggxcs")
