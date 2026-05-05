@@ -74,7 +74,7 @@ func _on_death():
 	queue_free()
 	
 
-func flash_red() -> void:
+func flash_red(_damage := 0.0) -> void:
 	if flash_timer <= 0.0:
 		var flashMaterial = ShaderMaterial.new()
 		flashMaterial.shader = HURT_SHADER
