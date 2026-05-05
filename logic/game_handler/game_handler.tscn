@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bk1sx0mo4u0p7" path="res://logic/enemy_spawner/boss_spawner.tscn" id="8_cimbk"]
 [ext_resource type="Resource" uid="uid://c3rqd0pndkgfo" path="res://logic/enemy_spawner/bosses/boss1.tres" id="9_cimbk"]
 [ext_resource type="Texture2D" uid="uid://bf0mwbgykd7ww" path="res://Assets/Sprites/arena/lava_tile_1080.png" id="9_rg2pl"]
+[ext_resource type="PackedScene" uid="uid://b6g622qdo0kyn" path="res://Assets/Scenes/Island.tscn" id="9_w3u42"]
 
 [node name="GameHandler" type="Node" unique_id=80113033]
 script = ExtResource("1_ubj65")
+island_scene = ExtResource("9_w3u42")
 
 [node name="EnemySpawner" parent="." unique_id=1660833515 instance=ExtResource("3_bqdwa")]
 
