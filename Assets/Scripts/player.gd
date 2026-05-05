@@ -152,17 +152,21 @@ func deal_knockback(attacker_global_position: Vector2) -> void:
 	
 	
 
-func _on_health_handler_took_damage() -> void:
+func _on_health_handler_took_damage(amount: float) -> void:
 	
 	if animated_sprite_2d.animation == "dead":
 		return
 	
 	
 	animated_sprite_2d.play("damaged")
-	# Calculate direction away from enemy
-	#var direction = (global_position - attacker_global_position).normalized()
-	#knockback_velocity = direction * knockback_strength
-	#print("player took damage: " + str(health_handler.hp))
+	# ----------------------------
+	# CAMERA SHAKE TRIGGER
+	var cam = get_viewport().get_camera_2d()
+	if cam and cam.has_method("add_shake"):
+		var intensity = clamp(amount * 0.1, 1.0, 5.0)
+		var duration = clamp(amount * 0.05, 0.15, 0.4)
+
+		cam.add_shake(intensity, duration)
 
 
 func collect_xp(amount: int) -> void:

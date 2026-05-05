@@ -53,7 +53,7 @@ func _flush_damage() -> void:
 	if not _damage_queued:
 		return
 	_damage_queued = false
-	took_damage.emit()
+	took_damage.emit(_pending_damage)
 	var dn = DAMAGE_NUMBER.instantiate()
 	get_tree().root.get_child(0).add_child(dn)
 	dn.global_position = global_position + Vector2(0, -80)
