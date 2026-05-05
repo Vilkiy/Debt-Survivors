@@ -10,7 +10,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy and not hit_timers.has(body):
 		var is_crit = randf() < GlobalVar.player.crit_chance
 		var final_damage = damage * 1.5 if is_crit else damage
-		body.health_handler.take_damage(final_damage, is_crit)
+		
+		var bod_enem : Enemy = body as Enemy
+		bod_enem.health_handler.take_damage(final_damage,"physical",is_crit)
+		
+		#body.health_handler.take_damage(final_damage, is_crit)
 		hit_timers[body] = hit_cooldown
 
 func _process(delta: float) -> void:

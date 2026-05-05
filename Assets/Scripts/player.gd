@@ -38,12 +38,25 @@ const UPGRADE_SCREEN = preload("uid://b8js13fbvbdnw")
 func _ready() -> void:
 	GlobalVar.player = self
 	await get_tree().process_frame
+	
+	health_handler.max_hp += UpgradeCurrencyManager.health_increase
+	health_handler.hp = health_handler.max_hp
+	
+	speed += UpgradeCurrencyManager.movement_speed_increase
+	
+	attack_damage_base += UpgradeCurrencyManager.movement_speed_increase
+	await get_tree().process_frame
+	
 	hud = get_tree().root.find_child("HUD", true, false)
 	recalculate_weapon_damages()
 	var shooter = get_node_or_null("Weapons/ProjectileShooter")
 	if shooter:
 		$BulletDisplay.setup(shooter.max_ammo)
 	animated_sprite_2d.play("idle")
+	
+	
+	
+	
 
 func _physics_process(_delta):
 	# ----------------------------

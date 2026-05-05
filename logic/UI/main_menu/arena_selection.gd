@@ -30,9 +30,10 @@ var arenas = [
 		"scene": "res://Assets/Sprites/arena/water_tile_1080.png",
 		"image": "res://Assets/Sprites/arena/water_icon_256.png",
 		"waves": [
-			"res://logic/enemy_spawner/waves/wave2.tres",
-			"res://logic/enemy_spawner/waves/wave1.tres",
-			"res://logic/enemy_spawner/waves/wave3.tres"
+			"res://logic/enemy_spawner/waves/wave_water_arena/wave1_water_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_water_arena/wave2_water_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_water_arena/wave3_water_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_water_arena/wave4_water_arena.tres",
 		]
 	},
 	{
@@ -40,9 +41,10 @@ var arenas = [
 		"scene": "res://Assets/Sprites/arena/lava_tile_1080.png",
 		"image": "res://Assets/Sprites/arena/lava_icon_256.png",
 		"waves": [
-			"res://logic/enemy_spawner/waves/wave3.tres",
-			"res://logic/enemy_spawner/waves/wave1.tres",
-			"res://logic/enemy_spawner/waves/wave2.tres"
+			"res://logic/enemy_spawner/waves/wave_lava_arena/wave1_lava_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_lava_arena/wave2_lava_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_lava_arena/wave3_lava_arena.tres",
+			"res://logic/enemy_spawner/waves/wave_lava_arena/wave4_lava_arena.tres",
 		]
 	}
 ]

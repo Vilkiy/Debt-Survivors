@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c7esejb6c8ya5"]
+
+[ext_resource type="Script" uid="uid://2ukk5fqybmb0" path="res://logic/UI/main_menu/shop_menu.gd" id="1_dwtmw"]
+
+[node name="ShopMenu" type="Control" unique_id=1242972951]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dwtmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=415813718]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 677.0
+offset_right = 1103.0
+offset_bottom = 773.0
+
+[node name="back" type="Button" parent="VBoxContainer" unique_id=823099688]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Back"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=583730394]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -480.0
+offset_right = 252.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=1148678499]
+layout_mode = 2
+
+[node name="HealthUpgradeLabel" type="Label" parent="VBoxContainer2/HBoxContainer" unique_id=1385317477]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Health Upgrade 0 Cost: 5"
+
+[node name="BuyHealthButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1490223682]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BUY"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2" unique_id=1165293521]
+layout_mode = 2
+
+[node name="AttackUpgradeLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=798320721]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Attack Upgrade 0 Cost: 5"
+
+[node name="BuyAttackButton" type="Button" parent="VBoxContainer2/HBoxContainer2" unique_id=644547123]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BUY"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2" unique_id=1039317098]
+layout_mode = 2
+
+[node name="SpeedUpgradeLabel" type="Label" parent="VBoxContainer2/HBoxContainer3" unique_id=1943573166]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Speed Upgrade 0 Cost: 5"
+
+[node name="BuySpeedButton" type="Button" parent="VBoxContainer2/HBoxContainer3" unique_id=987635860]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BUY"
+
+[node name="CurrencyContainer" type="PanelContainer" parent="." unique_id=787443899]
+layout_mode = 0
+offset_left = 1714.0
+offset_top = 992.0
+offset_right = 1894.0
+offset_bottom = 1055.0
+
+[node name="Currency" type="Label" parent="CurrencyContainer" unique_id=796876612]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/BuyHealthButton" to="." method="_on_buy_health_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/BuyAttackButton" to="." method="_on_buy_attack_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer3/BuySpeedButton" to="." method="_on_buy_speed_button_pressed"]

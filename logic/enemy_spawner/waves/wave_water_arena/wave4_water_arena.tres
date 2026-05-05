@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WaveResource" format=3 uid="uid://dabeg4wpte3nd"]
+
+[ext_resource type="Script" uid="uid://b2mebq0s4q6t5" path="res://logic/enemy_spawner/wave_resource.gd" id="1_jgcm5"]
+
+[resource]
+script = ExtResource("1_jgcm5")
+duration = 40.0
+spawn_interval = 1.0
+spawn_count = 4
+spawn_count_max = 8
+spawn_radius = 1200.0
+enemy_weights = {
+0: 100,
+1: 50,
+2: 40,
+3: 25
+}
+is_last_wave = true
+metadata/_custom_type_script = "uid://b2mebq0s4q6t5"

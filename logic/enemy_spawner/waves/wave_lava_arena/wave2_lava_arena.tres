@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WaveResource" format=3 uid="uid://r0usj8lsjxao"]
+
+[ext_resource type="Script" uid="uid://b2mebq0s4q6t5" path="res://logic/enemy_spawner/wave_resource.gd" id="1_twmth"]
+
+[resource]
+script = ExtResource("1_twmth")
+spawn_count = 5
+spawn_count_max = 16
+spawn_radius = 1200.0
+enemy_weights = {
+0: 20,
+1: 0,
+2: 50,
+3: 50
+}
+scaling_enabled = false
+metadata/_custom_type_script = "uid://b2mebq0s4q6t5"
