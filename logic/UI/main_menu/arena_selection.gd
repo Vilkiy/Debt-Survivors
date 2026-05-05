@@ -21,7 +21,8 @@ var arenas = [
 		"waves": [
 			"res://logic/enemy_spawner/waves/wave1.tres",
 			"res://logic/enemy_spawner/waves/wave2.tres",
-			"res://logic/enemy_spawner/waves/wave3.tres"
+			"res://logic/enemy_spawner/waves/wave3.tres",
+			"res://logic/enemy_spawner/waves/wave4.tres"
 		]
 	},
 	{

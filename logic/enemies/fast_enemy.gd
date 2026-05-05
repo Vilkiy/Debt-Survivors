@@ -1,8 +1,8 @@
 extends Enemy
 
 func _ready():
-	hp = 400
-	max_hp = 400
+	hp = 200
+	max_hp = 200
 	speed = 160
 	damage = 5
 	xpAmount = 10

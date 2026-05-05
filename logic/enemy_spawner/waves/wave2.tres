@@ -4,15 +4,14 @@
 
 [resource]
 script = ExtResource("1_e0xer")
-duration = 300.0
-spawn_interval = 4.0
-spawn_count = 5
-spawn_count_max = 10
-spawn_radius = 600.0
+spawn_count = 2
+spawn_count_max = 4
+spawn_radius = 1200.0
 enemy_weights = {
-0: 5,
-1: 0,
-2: 3,
-3: 2
+0: 45,
+1: 35,
+2: 20,
+3: 0
 }
+scaling_enabled = false
 metadata/_custom_type_script = "uid://b2mebq0s4q6t5"

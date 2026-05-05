@@ -7,8 +7,8 @@ var shoot_timer: float = 0.0
 const PROJECTILE = preload("res://logic/enemies/ranged_enemy/projectile.tscn")
 
 func _ready():
-	hp = 200
-	max_hp = 300
+	hp = 400
+	max_hp = 400
 	speed = 100
 	damage = 10
 	xpAmount = 30
