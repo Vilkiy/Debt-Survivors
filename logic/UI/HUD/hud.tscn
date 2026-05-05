@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dc1fe23bgyxsh" path="res://logic/UI/HUD/hud.gd" id="1_go0ej"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go0ej"]
+bg_color = Color(1, 0, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2u7"]
+bg_color = Color(0, 0.41960785, 0, 1)
+
 [node name="HUD" type="CanvasLayer" unique_id=962876454]
 script = ExtResource("1_go0ej")
 
@@ -36,3 +42,13 @@ anchor_bottom = 1.0
 offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="BossHealthBar" type="ProgressBar" parent="." unique_id=820232172]
+visible = false
+offset_left = 469.0
+offset_top = 74.0
+offset_right = 1565.0
+offset_bottom = 119.0
+theme_override_styles/background = SubResource("StyleBoxFlat_go0ej")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mc2u7")
+show_percentage = false

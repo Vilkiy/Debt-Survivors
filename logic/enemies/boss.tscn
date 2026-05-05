@@ -8,7 +8,7 @@
 radius = 189.0
 height = 378.0
 
-[node name="Boss" type="CharacterBody2D" unique_id=345262250 groups=["enemy"]]
+[node name="Boss" type="CharacterBody2D" unique_id=345262250 groups=["Boss", "enemy"]]
 motion_mode = 1
 script = ExtResource("1_m5y6m")
 
