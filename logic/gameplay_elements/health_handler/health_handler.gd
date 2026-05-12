@@ -33,12 +33,12 @@ func _ready() -> void:
 func take_damage(damage_amount: float, damage_type: String = "physical", is_crit: bool = false) -> void:
 	if damage_amount <= 0.0:
 		return
-
+	
 	var resistance = resistances.get(damage_type, 0.0)
 	resistance = clamp(resistance, 0.0, 1.0)
-
+	
 	var final_damage = damage_amount * (1.0 - resistance)
-
+	
 	_pending_damage += final_damage
 	_pending_damage_type = damage_type  # 👈 ADD THIS
 

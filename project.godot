@@ -25,11 +25,23 @@ UpgradeCurrencyManager="*uid://bf7nuxgo3viqq"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Debt Survivors"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://tests/": "gray"
+}
 
 [input]
 
